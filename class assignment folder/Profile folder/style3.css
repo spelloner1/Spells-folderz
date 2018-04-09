@@ -1,0 +1,40 @@
+body{
+	padding-top: 70px;
+}
+
+.sw-font-white{
+	color: white;
+}
+
+.sw-width{
+	width:100%;
+}
+
+.sw-80-width{
+	width: 80%;
+}
+
+.sw-left-padding{
+	padding-left:20px;
+}
+
+.sw-no-underline:hover{
+	text-decoration: none;
+}
+
+.sw-right-border{
+	border-right-style: solid
+}
+
+.sw-gray{
+	background-color: gray;
+}
+
+.sw-black{
+	color:black;
+}
+
+.sw-absolute-right{
+	position: absolute;
+	right: 15px;
+}
