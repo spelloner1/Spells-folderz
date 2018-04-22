@@ -1,3 +1,20 @@
 body{
 	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.sw-font-white{
+	color: white;
+}
+
+.sw-color-white{
+	color:white;
+}
+
+.sw-width{
+	width: 100%;
+}
+
+.btn-success{
+	margin-top: 10px;
 }
