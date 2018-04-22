@@ -1,3 +1,16 @@
-form {
-	padding-top: 15px;
+body{
+	padding-top: 70px;
+	padding-bottom: 70px
+}
+
+.sw-font-white{
+	color: black;
+}
+
+.sw-80-width{
+	width: 80%;
+}
+
+.sw-full-width{
+	width: 100%;
 }
