@@ -1,7 +1,24 @@
 body{
-	padding-top: 60px;
+	padding-top:70px;
+	padding-bottom:70px;
 }
 
-.btn-danger{
-	margin-top: 5px;
+.sw-gray{
+	color:#DCDCDC;
+}
+
+.sw-width{
+	width:100%;
+}
+
+.sw-font-white{
+	color:black;
+}
+
+.sw-black{
+	color:black;
+}
+
+.sw-80-width{
+	width:80%;
 }
