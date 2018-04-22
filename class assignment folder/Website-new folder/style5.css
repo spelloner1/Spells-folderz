@@ -1,3 +1,15 @@
 body{
-	padding-top: 60px;
+	padding-top: 70px;
+}
+
+.sw-font-white{
+	color:white;
+}
+
+.sw-no-underline{
+	text-decoration: none;
+}
+
+.sw-full-width{
+	width: 100%;
 }
