@@ -1,0 +1,16 @@
+body{
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.sw-full-width{
+	width: 100%;
+}
+
+.sw-font-white{
+	color:black;
+}
+
+.sw-80-width{
+	width: 80%;
+}
