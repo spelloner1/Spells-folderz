@@ -13,3 +13,7 @@ body{
 .sw-full-width{
 	width: 100%;
 }
+
+a:hover{
+	text-decoration: none;
+}
