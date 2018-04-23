@@ -22,3 +22,8 @@ body{
 .sw-80-width{
 	width:80%;
 }
+
+a:hover{
+	text-decoration: none;
+	
+}
