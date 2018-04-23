@@ -1,6 +1,7 @@
 body{
 	padding-top: 70px;
 	padding-bottom: 70px;
+	
 }
 
 .sw-color-black{
@@ -19,4 +20,9 @@ body{
 
 .sw-font-white{
 	color: white;
+}
+
+a:hover{
+	text-decoration: none;
+	color:red;
 }
