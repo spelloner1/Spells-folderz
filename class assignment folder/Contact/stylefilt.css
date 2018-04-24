@@ -1,0 +1,9 @@
+body{
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.sw-link a:hover{
+	text-decoration: none;
+	color: red;
+}
