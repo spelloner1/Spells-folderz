@@ -4,7 +4,7 @@ document.querySelector('#filter').addEventListener('keyup',filterBookmarks);
 
 
 function saveBookMark(e){
-	var siteName=document.querySelector('siteName').value;
+	var siteName=document.querySelector('#siteName').value;
 	var siteUrl=document.querySelector('#siteUrl').value;
 
 	var bookmark={
@@ -81,11 +81,11 @@ fetchBookMarks();
 
 function filterBookmarks(){
 
-let filterValue = document.querySelector('#filter').value.toUppercase();
+let filterValue = document.querySelector('#filter').value.toUpperCase();
 let bookmarks=document.querySelectorAll('.book');
 for(let i=0;i<bookmarks.length;i++){
 let bookmarkName=bookmarks[i].querySelector('h3');
-if(bookmarkName.innerHTML.toUppercase().includes(filterValue)){
+if(bookmarkName.innerHTML.toUpperCase().includes(filterValue)){
 bookmarks[i].style.display="block";
 
 } else{
