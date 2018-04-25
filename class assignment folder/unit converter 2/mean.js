@@ -65,7 +65,7 @@ function convertLbs(num){
 	'</div>'	
 }
 
-function convertGrams(nums){
+function convertGrams(num){
 
 	
 	document.querySelector('#output').innerHTML=
@@ -92,7 +92,7 @@ function convertGrams(nums){
 	'</div>'	
 }
 
-function converMeters(nums){
+function converMeters(num){
 
 	
 	document.querySelector('#output').innerHTML=
