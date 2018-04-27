@@ -18,6 +18,14 @@ body{
 	width: 100%;
 }
 
+.sw-80-width{
+	width:80%;
+}
+
+.sw-full-width{
+	width:100%;
+}
+
 
 
 a:hover{
@@ -90,6 +98,5 @@ a:hover{
 .btn-success{
 	margin-top: 10px;
 }
-
 
 
