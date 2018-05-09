@@ -1,0 +1,60 @@
+<nav class="row navbar navbar-dark bg-primary fixed-top">
+		<div class="col-sm-4 d-none d-md-block">
+			
+				<a class="sw-font-white" routerLink="/website-list">
+				<i class="fas fa-chevron-left"></i></a>
+				<a class="sw-font-white " routerLink="/website-list"><b>Websites</b></a>
+				<a class="sw-color-white float-right" routerLink="/website-new"><i class="fas fa-plus"></i></a>
+				
+			
+		</div>
+		<div class="col-sm-8">
+			<a class="sw-font-white" routerLink="/website-edit"><b>Edit Website</b></a>
+			<a routerLink="/website-list" class="sw-font-white  float-right"><i class="fas fa-check"></i></a>
+				
+			
+		</div>
+	</nav>
+	<div class="row">
+			<div class="col-sm-4 d-none d-sm-block">
+				<div class="container-fluid">
+					<ul class="list-group-flush">
+						<li class="list-group-item">
+							<a routerLink="/page-list">Blogging App</a>
+							<a class="float-right" routerLink="/website-edit"><i class="fas fa-cog"></i></a>
+						</li>
+						<li class="list-group-item">
+							<a routerLink="/page-list">Address Book App
+							</a><a class="float-right" routerLink="/website-edit"><i class="fas fa-cog"></i></a>	
+						</li>
+						<li class="list-group-item">
+							<a routerLink="/page-list">Script Testing App</a><a class="float-right" routerLink="/website-edit"><i class="fas fa-cog"></i></a>
+						</li>
+						<li class="list-group-item">
+							<a routerLink="/page-list">Blogger</a><a class="float-right" routerLink="/website-edit"><i class="fas fa-cog"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="container">
+					<form>
+						<div class="form-group">
+							<label for="website-name"><b>Website Name</b>
+							</label><input class="form-control" type="text" name="website name" placeholder="Blogger">
+						</div>
+						<div class="form-group">
+							<label for="website-description"><b>Website Description</b></label>
+							<textarea class="form-control" rows="5" placeholder="Blogger is a blog publishing service that allows multi-user blogs with time-stamped entries. It was developed by Pyra Labs, which was bought by Google in 2003. Generally, the blogs are hosted by Google at a subdomain of blogspot.com. Blogs can also be hosted in the registered custom domain of the blogger (like www.example.com).[4] A user can have up to 100 blogs per account."></textarea>
+							
+						</div>
+						<a class= "btn btn-danger btn-block" routerLink="/website-list">Delete</a>
+						
+					</form>
+					<div>
+					<nav class= "navbar navbar-dark bg-primary fixed-bottom">
+		<div class="sw-width">
+			<a class="sw-font-white float-right" routerLink="/profile"><i class="fas fa-user"></i></a>
+		</div>
+	
+		</nav>
