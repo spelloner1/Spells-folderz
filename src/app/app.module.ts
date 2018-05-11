@@ -15,9 +15,9 @@ import { WidgetListComponent } from './components/widget/widget-list/widget-list
 import { PageNewComponent } from './components/page/page-new/page-new.component';
 import { PageEditComponent } from './components/page/page-edit/page-edit.component';
 import { PageListComponent } from './components/page/page-list/page-list.component';
-import { WidgetHeadingComponent } from './components/widget/widget-heading/widget-heading.component';
-import { WidgetImageComponent } from './components/widget/widget-image/widget-image.component';
-import { WidgetYoutubeComponent } from './components/widget/widget-youtube/widget-youtube.component';
+import { WidgetHeadingComponent } from './components/widget/widget-edit/widget-heading/widget-heading.component';
+import { WidgetImageComponent } from './components/widget/widget-edit/widget-image/widget-image.component';
+import { WidgetYoutubeComponent } from './components/widget/widget-edit/widget-youtube/widget-youtube.component';
 
 
 import { Routing } from './app.routing';
@@ -51,7 +51,7 @@ import { Routing } from './app.routing';
     WidgetHeadingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
     Routing
   ],
   providers: [],

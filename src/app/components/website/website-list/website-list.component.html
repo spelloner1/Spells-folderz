@@ -1,32 +1,32 @@
 <nav class="navbar navbar-dark bg-primary fixed-top">
-		<a routerLink="/../user/profile" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
+		<a routerLink="/user/:uid	" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
 		<div class="sw-80-width">
-			<a class="float-left navbar-brand" routerLink="/website-list"><strong>Websites</strong></a>
+			<a class="float-left navbar-brand" routerLink="/user/:uid/website	"><strong>Websites</strong></a>
 		</div>
 
-		<a routerLink="/website-new" class="sw-font-white"><i class="fas fa-plus"></i></a>	
+		<a routerLink="/user/:uid/website/new" class="sw-font-white"><i class="fas fa-plus"></i></a>	
 	</nav>
 
 	<div class="container-fluid">
 		<ul class="list-group-flush">
 			<li class="list-group-item">
-				<a routerLink="/../pages/page-list">Address Book App</a>
-				<a class="float-right" routerLink="/website-edit"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page	">Address Book App</a>
+				<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>
 			</li>
-			<li class="list-group-item "><a routerLink="/../pages/page-list">Blogger</a>
-				<a class="float-right" routerLink="/website-edit"><i class="fas fa-cog"></i></a>
-			</li>
-			<li class="list-group-item ">
-				<a routerLink="/../pages/page-list">Blogger App</a><a class="float-right" routerLink="/website-edit"><i class="fas fa-cog"></i></a>
+			<li class="list-group-item "><a routerLink="/user/:uid/website/:wid/page">Blogger</a>
+				<a class="float-right" routerLink="/user/:uid/website/:wid/page"><i class="fas fa-cog"></i></a>
 			</li>
 			<li class="list-group-item ">
-				<a routerLink="/../pages/page-list">Script Testing App</a><a class="float-right" routerLink="/website-edit"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page">Blogger App</a><a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>
+			</li>
+			<li class="list-group-item ">
+				<a routerLink="/user/:uid/website/:wid/page">Script Testing App</a><a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>
 			</li>		
 		</ul>	
 	</div>
 	<nav class= "navbar navbar-dark bg-primary fixed-bottom">
 		<div class="sw-width">
-			<a routerLink="/../user/profile" class="sw-font-white float-right"><i class="fas fa-user"></i></a>
+			<a routerLink="/user/:uid" class="sw-font-white float-right"><i class="fas fa-user"></i></a>
 		</div>	
 
 	</nav>	

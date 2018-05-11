@@ -1,15 +1,15 @@
 <nav class="row navbar navbar-dark bg-primary fixed-top">
 		<div class="col-sm-4 d-none d-sm-block">
 			<div class="container-fluid">
-				<a class="sw-font-white" routerLink="/../user/website-list"><i class="fas fa-chevron-left"></i></a>
-				<a class="sw-left-padding sw-no-underline" routerLink= "/website-list"><b class="sw-font-white">Websites</b></a>
-				<a routerLink="/../websites/website-new" class="sw-font-white float-right"><i class="fas fa-plus"></i></a>
+				<a class="sw-font-white" routerLink="/user/:uid/website"><i class="fas fa-chevron-left"></i></a>
+				<a class="sw-left-padding sw-no-underline" routerLink= "/user/:uid/website"><b class="sw-font-white">Websites</b></a>
+				<a routerLink="/user/:uid/website/new" class="sw-font-white float-right"><i class="fas fa-plus"></i></a>
 			</div>
 		</div>
 		<div class="col-sm-8">
 			<div class="container-fluid">
 				<a routerLink="#" class="sw-no-underline"><b class="sw-font-white">New Website</b></a>
-				<a routerLink= "/../websites/website-list" class="sw-font-white float-right"><i class="fas fa-check"></i></a>
+				<a routerLink= "/user/:uid/website	" class="sw-font-white float-right"><i class="fas fa-check"></i></a>
 
 			</div>
 		</div>
@@ -22,16 +22,16 @@
 				<div class="container">
 					<ul class="list-group-flush">
 						<li class="list-group-item">
-							<a href="../pages/page-list.html">MSIMBO</a>
-							<a class="float-right" routerLink="/../websites/website-edit"><i class="fas fa-cog"></i></a>
+							<a routerLink="/user/:uid/website/:wid/page">MSIMBO</a>
+							<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>
 						</li>
 						<li class="list-group-item">
-							<a routerLink="../pages/page-list">Address Book
-							</a><a class="float-right" routerLink="/../websites/website-edit"><i class="fas fa-cog"></i></a>	
+							<a routerLink="/user/:uid/website/:wid/page">Address Book
+							</a><a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>	
 						</li>
 
 						<li class="list-group-item">
-							<a routerLink="/../pages/page-list">Sublime Instruction</a><a class="float-right" routerLink="/../websites/website-edit"><i class="fas fa-cog"></i></a>
+							<a routerLink="/user/:uid/website/:wid/page">Sublime Instruction</a><a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>
 						</li>
 					</ul>
 				</div>
@@ -54,7 +54,7 @@
 		</div>
 		<footer class="navbar fixed-bottom navbar-dark bg-primary">
 			<div class="sw-full-width">
-				<a class="navbar-brand float-right" routerLink="/../user/profile"><i class="fas fa-user"></i></a>
+				<a class="navbar-brand float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
 			</div>
 
 		</footer>

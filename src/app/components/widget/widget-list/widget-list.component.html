@@ -1,28 +1,28 @@
 <nav class="navbar fixed-top navbar-light sw-bg-grey">
-		<a class="sw-color-black" routerLink="/page-list"><i class="fas fa-chevron-left"></i></a>
+		<a class="sw-color-black" routerLink="/user/:uid/website/:wid/page"><i class="fas fa-chevron-left"></i></a>
 		<div class="sw-90-width">
-			<a class="navbar-brand float-left" routerLink="/widget-list"><b>Widgets</b></a>
+			<a class="navbar-brand float-left" routerLink="/user/:uid/website/:wid/page/:pid/widget"><b>Widgets</b></a>
 		</div>
-		<a class="sw-color-black" routerLink="/widget-choose"><i class="fas fa-plus"></i></a>
+		<a class="sw-color-black" routerLink="/user/:uid/website/:wid/page/:pid/widget/new"><i class="fas fa-plus"></i></a>
 	</nav>
 	<div class="container-fluid">
 		<div>
 			<div class="sw-absolute-right">
-				<a routerLink="/widget-heading"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 				<a routerLink="#"><i class="fas fa-bars"></i></a>
 			</div>
 			<h3><b>GIZMODO</b></h3>
 		</div>
 		<div>
 			<div class="sw-absolute-right">
-				<a routerLink="/widget-image"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 				<a routerLink="#"><i class="fas fa-bars"></i></a>
 			</div>
 			<h5>U.S. Senate Reaches Compromise <br>on Emergency Zika Funding</h5>
 		</div>
 		<div>
 			<div class="sw-absolute-right">
-				<a routerLink="widget-youtube"><i class="fas fa-cog"></i></a>
+				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 				<a routerLink="#"><i class="fas fa-bars"></i></a>
 			</div>
 			<img width="100%" class="d-lg-none" src="https://www.w3schools.com/howto/img_fjords.jpg">
@@ -31,7 +31,7 @@
 		
 			<div>
 				<div class="sw-absolute-right">
-					<a routerLink="/widget-heading"><i class="fas fa-cog"></i></a>
+					<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 					<a routerLink="#"><i class="fas fa-bars"></i></a>
 				</div>
 
@@ -50,7 +50,7 @@
 
 			<div>
 				<div class="sw-absolute-right">
-					<a routerLink="/widget-heading"><i class="fas fa-cog"></i></a>
+					<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 					<a routerLink="#"><i class="fas fa-bars"></i></a>
 				</div>		
 	
@@ -63,7 +63,7 @@
 
 			<div>
 				<div class="sw-absolute-right">
-					<a routerLink="/widget-image"><i class="fas fa-cog"></i></a>
+					<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 					<a routerLink="#"><i class="fas fa-bars"></i></a>
 				</div>		
 	
@@ -74,7 +74,7 @@
 			</div>
 			<div>
 				<div class="sw-absolute-right">
-					<a routerLink="/widget-youtube"><i class="fas fa-cog"></i></a>
+					<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cog"></i></a>
 					<a routerLink="#"><i class="fas fa-bars"></i></a>
 				</div>
 				<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -93,6 +93,6 @@
 		<div class="sw-full-width">
 			<a routerLink="#" class="btn btn-primary">Publish</a>
 			<a routerLink="#" class="btn btn-warning">Preview</a>
-			<a class="navbar-brand float-right" routerLink="/profile"><i class="fas fa-user"></i></a> 
+			<a class="navbar-brand float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a> 
 		</div>
 	</footer>
