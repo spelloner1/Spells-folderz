@@ -1,13 +1,13 @@
 
 import { Injectable } from '@angular/core';
-
+import {Website} from '../models/website.model.client';
 @Injectable()
 
 export class websiteService {
 
   constructor() { }
 
- websites =[
+ websites: Website[] =[
   
   { _id: "123", name: "Facebook", developerId: "456", description: "Lorem" },
   { _id: "234", name: "Tweeter",  developerId: "456", description: "Lorem" },
@@ -16,9 +16,10 @@ export class websiteService {
   { _id: "567", name: "Tic Tac Toe", developerId: "123", description: "Lorem" },
   { _id: "678", name: "Checkers", developerId: "123", description: "Lorem" },
   { _id: "789", name: "Chess", developerId: "234", description: "Lorem" }
+  // new Website("789","Chess","234","Lorem")
 ];
 
- createWebsite(userId,website){
+ createWebsite(userId, String, website: Website){
 	website._id = Math.floor(Math.random() * 10000).toString();
 	website.developerId = userId;
 	this.websites.push(website);
@@ -27,7 +28,7 @@ export class websiteService {
 // createWebsite("555", {name: "newWeb", description: "a new website"});
 // console.log(websites);
 
-findWebsitesByUser(userId){
+findWebsitesByUser(userId:String){
 
 var result = [];
 for(let i= 0;i<this.websites.length;i++){
@@ -38,7 +39,7 @@ result.push(this.websites[i]);
 }
 return result;
 }
-findWebsiteById (websiteId){
+findWebsiteById (websiteId: String){
 	for(let i = 0;i<this.websites.length;i++){
 		if (this.websites[i]._id === websiteId){
 			return this.websites[i];
@@ -46,14 +47,14 @@ findWebsiteById (websiteId){
 	}
 }
 
-updateWebsite(websiteId,website){
+updateWebsite(websiteId: String,website:Website){
 	var oldWeb = this.findWebsiteById(websiteId);
 	var index = this.websites.indexOf(oldWeb);
 	this.websites[index].name = website.name;
 	this.websites[index].description = website.description;
 	}
 
-deleteWebsite(websiteId){
+deleteWebsite(websiteId: String){
 	var web = this.findWebsiteById(websiteId);
 	var index = this.websites.indexOf(web);
 	this.websites.splice(index,1);

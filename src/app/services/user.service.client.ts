@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-
+import { User } from '../models/user.model.client';
+// injecting service into the module
 @Injectable()
 
 export class UserService {
@@ -14,13 +15,13 @@ users = [
   {_id: "456", username: "shiyu", password: "shiyu", firstName: "Shiyu", lastName: "Wang", email: "swang@ulem.org"}
   ];
 
-  createUser(user) {
+  createUser(user: User) {
     user._id = Math.floor(Math.random() * Math.floor(10000)).toString();
     this.users.push(user);
     return user;
   }
 
-  findUserById(userId: string) {
+  findUserById(userId: String) {
     for (let x = 0; x < this.users.length; x++) {
       if (this.users[x]._id === userId) {  
         return this.users[x]; 
@@ -28,18 +29,18 @@ users = [
     }
   }
 
-  findUserByUsername(username: string) { 
+  findUserByUsername(username: String) { 
   // for (let x = 0; x < this.users.length; x++) {
   //     if (this.users[x].username === username) {  
   //       return this.users[x]; 
   //     }
   //   }
-    return this.users.find(function(user) {
+    return this.users.find(function(user: User) {
       return user.username === username;
     })
   }
 
-  findUserByCredentials(username: string, password: string) { 
+  findUserByCredentials(username: String, password: String) { 
    for (let x = 0; x < this.users.length; x++) {
       if (this.users[x].username === username && this.users[x].password === password) {  
         return this.users[x]; 
@@ -47,7 +48,7 @@ users = [
     }
   }
 
-  updateUser(userId: string, user) { 
+  updateUser(userId: String, user: User) { 
     var oldUser = this.findUserById(userId);
     var index = this.users.indexOf(oldUser);
 
@@ -59,7 +60,7 @@ users = [
 
   }
 
-  deleteUser(userId) { 
+  deleteUser(userId: String) { 
      var oldUser = this.findUserById(userId);
      var index = this.users.indexOf(oldUser);
      this.users.splice(index, 1);
