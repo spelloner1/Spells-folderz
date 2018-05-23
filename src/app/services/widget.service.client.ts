@@ -19,7 +19,7 @@ widgets :Widget[]= [
 
 ];
 // adds the widget parameter instance to the local widgets array. The new widgets pageId is set to the pageId parameter
-createWidget(pageId: String, widget:Widget){
+createWidget(pageId: string, widget:Widget){
 	widget._id = Math.floor(Math.random() *Math.floor(10000)).toString();
 	widget.pageId = pageId;
 	this.widgets.push(widget);
@@ -27,7 +27,7 @@ createWidget(pageId: String, widget:Widget){
 }
 // retrieves the widgets in local widgets array whose pageId matches the parameter pageId
 
-findWidgetsByPageId(pageId: String){
+findWidgetsByPageId(pageId: string){
 	var result = [];
 	for(var i=0;i<this.widgets.length;i++){
 		if(this.widgets[i].pageId===pageId){
@@ -37,7 +37,7 @@ findWidgetsByPageId(pageId: String){
 	return result;
 }
 // retrieves the widget in local widgets array whose _id matches the widgetId parameter
-findWidgetById(widgetId: String) {
+findWidgetById(widgetId: string) {
     for (var i = 0; i < this.widgets.length; i++) {
       if (this.widgets[i]._id === widgetId) {  
         return this.widgets[i]; 
@@ -45,7 +45,7 @@ findWidgetById(widgetId: String) {
     }
   }
 // updates the widget in local widgets array whose _id matches the widgetId parameter
-  updateWidget(widgetId: String, widget:Widget){
+  updateWidget(widgetId: string, widget:Widget){
   	const oldWidget = this.findWidgetById(widgetId);
   	const index = this.widgets.indexOf(oldWidget);
   	this.widgets [index].size = widget.size;
@@ -54,7 +54,7 @@ findWidgetById(widgetId: String) {
   	this.widgets [index].url = widget.url;
   }
 // removes the widget from local widgets array whose _id matches the widgetId parameter
-  deleteWidget(widgetId: String){
+  deleteWidget(widgetId: string){
   	const oldWidget = this.findWidgetById(widgetId);
   	const index = this.widgets.indexOf(oldWidget);
   	this.widgets.splice(index,1);

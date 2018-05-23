@@ -1,14 +1,14 @@
 export class Page{
-	_id:String;
-	name:String;
-	developerId:String;
-	description:String;
+	_id:string;
+	name:string;
+	websiteId:string;
+	description:string;
 	
 
-	constructor(id, username, password, firstName, lastName,email){
+	constructor(_id, name, websiteId, description){
 		this._id =_id;
-		this.username = name;
-		this.developerId = developerId;
+		this.name = name;
+		this.websiteId = websiteId;
 		this.description = description;
 		
 	}

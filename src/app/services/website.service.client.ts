@@ -19,7 +19,7 @@ export class websiteService {
   // new Website("789","Chess","234","Lorem")
 ];
 
- createWebsite(userId, String, website: Website){
+ createWebsite(userId, string, website: Website){
 	website._id = Math.floor(Math.random() * 10000).toString();
 	website.developerId = userId;
 	this.websites.push(website);
@@ -28,7 +28,7 @@ export class websiteService {
 // createWebsite("555", {name: "newWeb", description: "a new website"});
 // console.log(websites);
 
-findWebsitesByUser(userId:String){
+findWebsitesByUser(userId:string){
 
 var result = [];
 for(let i= 0;i<this.websites.length;i++){
@@ -39,7 +39,7 @@ result.push(this.websites[i]);
 }
 return result;
 }
-findWebsiteById (websiteId: String){
+findWebsiteById (websiteId: string){
 	for(let i = 0;i<this.websites.length;i++){
 		if (this.websites[i]._id === websiteId){
 			return this.websites[i];
@@ -47,14 +47,14 @@ findWebsiteById (websiteId: String){
 	}
 }
 
-updateWebsite(websiteId: String,website:Website){
+updateWebsite(websiteId: string,website:Website){
 	var oldWeb = this.findWebsiteById(websiteId);
 	var index = this.websites.indexOf(oldWeb);
 	this.websites[index].name = website.name;
 	this.websites[index].description = website.description;
 	}
 
-deleteWebsite(websiteId: String){
+deleteWebsite(websiteId: string){
 	var web = this.findWebsiteById(websiteId);
 	var index = this.websites.indexOf(web);
 	this.websites.splice(index,1);
