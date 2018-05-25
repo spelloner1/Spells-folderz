@@ -1,19 +1,20 @@
 <nav class="navbar navbar-light fixed-top" style="background-color: #e3f2fd;">
 		<a routerLink="/user/:uid/website/:wid/page	" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
 		<div class="sw-80-width">
-			<a class="float-left navbar-brand" routerLink="/user/:uid/website/:wid/page/:pid/widget	"><strong>New Page</strong></a>
+			<a class="float-left navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}/page/:pid/widget	"><strong>New Page</strong></a>
 		</div>
-		<a routerLink="/user/:uid/website/:wid/page	" class="sw-font-white"><i class="fas fa-check"></i></a> 
+		<a routerLink="/user/{{uid}}/website/{{wid}}/page	" class="sw-font-white"><i class="fas fa-check"></i></a> 
 	</nav>
 	<div class="container">
-		<form>
+		<form id="pageForm" (ngSubmit)="create()" #f="ngForm">
 			<div class="form-group">
 				<label for="page-description">Name</label>
-				<input class="form-control" type="text"-name="website-name" placeholder="Page Name"> 
+				<input class="form-control" required ngModel #name= "ngModel"  type="text" name = "page-name" placeholder="Page Name..."> 
 			</div>
+			<div *ngIf= "name.invalid && name.touched"class="alert alert-warning">name can't be empty</div>
 			<div class="form-group">
-				<label for="page-description">Title</label>
-				<input class="form-control" type="text"-name="website-name" placeholder="Page Title"> 
+				<label for="page-description">Description</label>
+				<input class="form-control" type="text"name="description" ngModel #description="ngModel"  placeholder="Enter your description..."> 
 			</div>
 		</form>
 

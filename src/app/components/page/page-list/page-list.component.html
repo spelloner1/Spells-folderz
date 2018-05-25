@@ -1,17 +1,17 @@
 <nav class="navbar fixed-top navbar-light" style="background-color: #DCDCDC;">
-		<a class="sw-color-black" routerLink="/user/:uid/website"><i class="fas fa-chevron-left"></i></a>
+		<a class="sw-color-black" routerLink="/user/{{uid}}/website"><i class="fas fa-chevron-left"></i></a>
 		<div class="sw-90-width">
-			<a class="navbar-brand sw-color-black float-left"  routerLink="/user/:uid/website/:wid/page/:pid/widget" ><b>Page</b></a>
+			<a class="navbar-brand sw-color-black float-left"  routerLink="/user/:uid/website/{{wid}}/page/:pid/widget" ><b>Page</b></a>
 		</div>
-		<a class="sw-color-black" routerLink="/user/:uid/website/:wid/page/new"><i class="fas fa-plus"></i></a>	
+		<a class="sw-color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/new"><i class="fas fa-plus"></i></a>	
 	</nav>
 	<div class="container-fluid">
 		<ul class="list-group-flush">
-			<li class="list-group-item">
+			<li class="list-group-item" *ngFor="let page of pages">
 				<a routerLink="#">Blog Post</a>
-				<a class="float-right" routerLink="/user/:uid/website/:wid/page/:pid"><i class="fas fa-cog"></i></a>
+				<a class="float-right" routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}>{{page.name}}<i class="fas fa-cog"></i></a>
 			</li>
-			<li class="list-group-item">
+			<!-- <li class="list-group-item">
 				<a routerLink="#">Blogs</a>
 				<a class="float-right" routerLink="/user/:uid/website/:wid/page/:pid"><i class="fas fa-cog"></i></a>
 				<li class="list-group-item">
@@ -26,7 +26,7 @@
 				<a routerLink="#">Contact Us</a>
 				<a class="float-right " routerLink="/user/:uid/website/:wid/page/:pid"><i class="fas fa-cog"></i></a>
 			</li>
-			
+			 -->
 		</ul>	
 	</div>
 
@@ -34,7 +34,7 @@
 
 	<nav class="navbar fixed-bottom navbar-light" style="background-color: #DCDCDC;">
 		<div class="sw-width">
-			<a routerLink="/user/:uid" class="sw-color-black float-right"><i class="fas fa-user"></i></a>
+			<a routerLink="/user/{{uid}}" class="sw-color-black float-right"><i class="fas fa-user"></i></a>
 		</div>	
 
 	</nav>	

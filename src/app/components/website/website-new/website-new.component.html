@@ -41,7 +41,7 @@
 					<form id="websiteForm" (ngSubmit)="create()" #f="websiteForm">
 						<div class="form-group">
 							<label for="website-name"><b>Name</b>
-							</label> <input class="form-control" type="text" name="website-name" placeholder="Input your website name" required ngModel #name="ngModel">
+							</label> <input class="form-control" type="text" name="name" placeholder="Input your website name" required ngModel #name="ngModel">
 						</div>
 						<div class="alert alert-warning" *ngIf="name.invalid && name.touched">Name can't be empty</div>
 

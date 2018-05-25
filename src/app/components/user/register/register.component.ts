@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   register(){
   	this.username = this.registerForm.value.username;
   	this.password = this.registerForm.value.password;
-  	this.verifyPasswword = this.registerForm.value.verifyPassword;
+  	this.verifyPassword = this.registerForm.value.verifyPassword;
   
   	if(this.password !== this.verifyPassword){
   		alert("Two passwords are not matching!")

@@ -1,22 +1,25 @@
 <nav class="navbar fixed-top navbar-light" style="background-color: #e3f2fd; ">
-		<a routerLink="/user/:uid/website/:wid/page" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
+		<a routerLink="/user/:uid/website/{{wid}}/page" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
 		<div class="sw-80-width">
-			<a class="float-left navbar-brand" routerLink="/user/:uid/website/:wid/page/:pid/widget"><strong>New Page</strong></a>
+			<a class="float-left navbar-brand" routerLink="/user/{{uid}}/website/:wid/page/{{pid}}/widget"><strong>New Page</strong></a>
 		</div>
-		<a routerLink="/user/:uid/website/:wid/page" class="sw-font-white"><i class="fas fa-check"></i></a> 
+		<button type="submit" [disabled]= "f.invalid" form="pageForm" class=" btn sw-button-to-a /user/{{uid}}/website/{{wid}}/page" class="sw-font-white"><i class="fas fa-check"></i></button> 
 	</nav>
 	<div class="container">
-		<form>
+		<form id="pageForm" (ngSubmit)= "update()" #f="ngForm">
 			<div class="form-group">
 				<label for="page-description" ><b>Name</b></label>
-				<input class="form-control" type="text"-name="website-name" placeholder="Page Name"> 
+				<input class="form-control" required ngModel= {{page.name}}
+				#name= "ngModel" type="text"-name="website-name" placeholder="Page Name"> 
 			</div>
+
+			<div *ngIf= "name.invalid && name.touched"class="alert alert-warning">name can't be empty</div>
 			<div class="form-group">
-				<label for="page-description" ><b>Title</b></label>
-				<input class="form-control" type="text"-name="website-name" placeholder="Page Title"> 
+				<label for="page-description" ><b>Description</b></label>
+				<input class="form-control" ngModel={{page.description}} #description= "ngModel" type="text" name="website-name" placeholder="Page Title"> 
 			</div>
 		</form>
-		<a class="btn btn-danger btn-block" routerLink="/user/:uid/website/:wid/page">Delete</a>
+		<button type="button" class="btn btn-danger btn-block"(click)="remove()" type="submit" [disabled]="f.ivalid" >Delete</button>
 		
 	</div>
 	
