@@ -1,6 +1,7 @@
 export class Widget{
 	_id:string;
 	widgetType:string;
+	name?: string;
 	pageId:string;
 	size?:number;
 	text?:string;
