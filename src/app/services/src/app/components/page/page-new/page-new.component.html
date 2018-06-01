@@ -1,0 +1,27 @@
+<nav class="navbar navbar-light fixed-top" style="background-color: #e3f2fd;">
+		<a routerLink="/user/:uid/website/:wid/page	" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
+		<div class="sw-80-width">
+			<a class="float-left navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}/page/:pid/widget	"><strong>New Page</strong></a>
+		</div>
+		<a routerLink="/user/{{uid}}/website/{{wid}}/page	" class="sw-font-white"><i class="fas fa-check"></i></a> 
+	</nav>
+	<div class="container">
+		<form id="pageForm" (ngSubmit)="create()" #f="ngForm">
+			<div class="form-group">
+				<label for="page-description">Name</label>
+				<input class="form-control" required ngModel #name= "ngModel"  type="text" name = "page-name" placeholder="Page Name..."> 
+			</div>
+			<div *ngIf= "name.invalid && name.touched"class="alert alert-warning">name can't be empty</div>
+			<div class="form-group">
+				<label for="page-description">Description</label>
+				<input class="form-control" type="text"name="description" ngModel #description="ngModel"  placeholder="Enter your description..."> 
+			</div>
+		</form>
+
+		
+	
+	<footer class="navbar fixed-bottom navbar-light" style="background-color: #e3f2fd;">
+		<div class="sw-full-width">
+			<a class="navbar-brand float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
+		</div>
+	</footer>

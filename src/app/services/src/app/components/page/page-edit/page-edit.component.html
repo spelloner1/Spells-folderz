@@ -1,0 +1,32 @@
+<nav class="navbar fixed-top navbar-light" style="background-color: #e3f2fd; ">
+		<a routerLink="/user/:uid/website/{{wid}}/page" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
+		<div class="sw-80-width">
+			<a class="float-left navbar-brand" routerLink="/user/{{uid}}/website/:wid/page/{{pid}}/widget"><strong>New Page</strong></a>
+		</div>
+		<button type="submit" [disabled]= "f.invalid" form="pageForm" class=" btn sw-button-to-a /user/{{uid}}/website/{{wid}}/page" class="sw-font-white"><i class="fas fa-check"></i></button> 
+	</nav>
+	<div class="container">
+		<form id="pageForm" (ngSubmit)= "update()" #f="ngForm">
+			<div class="form-group">
+				<label for="page-description" ><b>Name</b></label>
+				<input class="form-control" required ngModel= {{page.name}}
+				#name= "ngModel" type="text"-name="website-name" placeholder="Page Name"> 
+			</div>
+
+			<div *ngIf= "name.invalid && name.touched"class="alert alert-warning">name can't be empty</div>
+			<div class="form-group">
+				<label for="page-description" ><b>Description</b></label>
+				<input class="form-control" ngModel={{page.description}} #description= "ngModel" type="text" name="website-name" placeholder="Page Title"> 
+			</div>
+		</form>
+		<button type="button" class="btn btn-danger btn-block"(click)="remove()" type="submit" [disabled]="f.ivalid" >Delete</button>
+		
+	</div>
+	
+		<nav class="navbar fixed-bottom navbar-light" style="background-color: #e3f2fd; ">
+			<div class="sw-full-width">
+
+		<a class="navbar-brand float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
+		</div>
+
+		</nav>

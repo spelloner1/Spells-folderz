@@ -1,0 +1,62 @@
+<nav class="row navbar navbar-dark bg-primary fixed-top">
+		<div class="col-sm-4 d-none d-sm-block">
+			<div class="container-fluid">
+				<a class="sw-font-white" routerLink="/user/{{uid}}/website"><i class="fas fa-chevron-left"></i></a>
+				<a class="sw-left-padding sw-no-underline" routerLink= "/user/{{uid}}/website"><b class="sw-font-white">Websites</b></a>
+				<a routerLink="/user/{{uid}}/website/new" class="sw-font-white float-right"><i class="fas fa-plus"></i></a>
+			</div>
+		</div>
+		<div class="col-sm-8">
+			<div class="container-fluid">
+				<a routerLink="#" class="sw-no-underline"><b class="sw-font-white">New Website</b></a>
+				<button class= "btn /user/{{uid}}/website	" class="sw-font-white float-right sw-button-to-a type="submit" form="websiteForm" [disabled]="f.invalid"><i class="fas fa-check"></i></button>
+
+			</div>
+		</div>
+
+	</nav>
+
+
+		<div class="row">
+			<div class="col-sm-4 d-none d-sm-block">
+				<div class="container">
+					<ul class="list-group-flush">
+						<li class="list-group-item" *ngFor ="let website of websites">
+							<a routerLink="/user/{{uid}}/website/{{website._id}}/page">{{website.name}}</a>
+							<a class="float-right" routerLink="/user/{{uid}}/website/{{website._id}}"><i class="fas fa-cog"></i></a>
+						</li>
+						<li class="list-group-item">
+							<a routerLink="/user/:uid/website/:wid/page">Address Book
+							</a><a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>	
+						</li>
+
+						<li class="list-group-item">
+							<a routerLink="/user/:uid/website/:wid/page">Sublime Instruction</a><a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cog"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="container">
+					<form id="websiteForm" (ngSubmit)="create()" #f="websiteForm">
+						<div class="form-group">
+							<label for="website-name"><b>Name</b>
+							</label> <input class="form-control" type="text" name="name" placeholder="Input your website name" required ngModel #name="ngModel">
+						</div>
+						<div class="alert alert-warning" *ngIf="name.invalid && name.touched">Name can't be empty</div>
+
+						<div class="form-group">
+							<label for="website-description"><b>Description</b></label>
+							<textarea class="form-control"name="description" rows="5" placeholder="Input your description for this website" ngModel #description="ngModel"></textarea>
+							
+						</div>
+					</form>
+				</div>
+						
+		</div>
+		<footer class="navbar fixed-bottom navbar-dark bg-primary">
+			<div class="sw-full-width">
+				<a class="navbar-brand float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
+			</div>
+
+		</footer>
