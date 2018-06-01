@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import{ActivatedRoute,Router} from '@angular/router';
-import{WidgetService} from "../../../../services/widget.service.client"
-import{Widget} from "../../../../models/widget.model.client"
-import{NgForm } from "@angular/forms";
+import{WidgetService} from '../../../../services/widget.service.client'
+import{Widget} from '../../../../models/widget.model.client'
+import{NgForm } from '@angular/forms';
 
 
 
@@ -27,7 +27,7 @@ uid:string;
 
 
 
-  constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute
+  constructor(private widgetService: WidgetService, private activatedRoute: 
   	ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -64,7 +64,7 @@ const updatedWidget: Widget = {
 }
 
 this.widgetService.updatewidget(this.wgid,updatedWidget);
-this.router.navigate('user',this.uid,'website', this.wid, 'page', this.pid, 'widget']);
+this.router.navigate(['user',this.uid,'website', this.wid, 'page', this.pid, 'widget']);
 
   }
 

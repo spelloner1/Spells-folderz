@@ -23,7 +23,7 @@ widget:Widget;
   text:string;
   size:number;
 
-  constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute
+  constructor(private widgetService: WidgetService, private activatedRoute: 
   	ActivatedRoute, private router: Router ) { }
    
   
@@ -48,20 +48,21 @@ widget:Widget;
   	const updatedWidget: Widget = {
 
   		_id: this.wgid,
-  		name: this.nam,
+  		name: this.name,
   		widgetType: this.widget.widgetType,
   		pageId: this.pid,
   		size: this.size,
   		text: this.text
   	}
 
-  	this.widgetService.updateWidget(this.wgid, updateWidget);
-  	this.router.navigate('user',this.uid,'website', this.wid, 'page', this.pid, 'widget']);
+  	this.widgetService.updateWidget(this.wgid, updatedWidget);
+  	this.router.navigate(['user',this.uid,'website', this.wid, 'page', this.pid, 'widget']);
   }
 
 
-remove(){}
+remove(){
 this.widgetService.deleteWidget(this.wgid);
-this.router.navigate('user',this.uid,'website', this.wid, 'page', this.pid, 'widget']);
+this.router.navigate(['user',this.uid,'website', this.wid, 'page', this.pid, 'widget']);
 // user/:uid/website/:wid/page/:pid/widget	
+}
 }

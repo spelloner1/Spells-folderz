@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-light bg-light">
-  <a class="navbar-brand" routerLink="/user/:uid/website/:wid/page/:pid/widget"><i class="fas fa-chevron-left"></i></a>
+  <a class="navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><i class="fas fa-chevron-left"></i></a>
 		<div class="sw-90-width">
-			<a class="float-left navbar-brand" routerLink="#"><strong>Choose Widget</strong></a>
+			<a class="float-left navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"><strong>Choose Widget</strong></a>
 		</div>
 		
 	</nav>
@@ -9,41 +9,41 @@
 	<div class="container-fluid">
 		<ul class="list-group-flush">
 			<li class="list-group-item">
-				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">Header</a>
+				<button class="btn sw-button to-a" (click)="create("HEADING")">Header</button>
 				
 			</li>
 			<li class="list-group-item">
-				<a routerLink="#">Label</a>
+				<a routerLink="user/:uid/website/:wid/page/:pid/widget/:wgid">Label</a>
 				
 				<li class="list-group-item">
-				<a routerLink="#">HTML</a>
+				<a routerLink="user/:uid/website/:wid/page/:pid/widget/:wgid">HTML</a>
 				
 			</li>
 			<li class="list-group-item">
-				<a routerLink="#">Text Input</a>
+				<a routerLink="user/:uid/website/:wid/page/:pid/widget/:wgid">Text Input</a>
 				
 			</li>
 			<li class="list-group-item">
-				<a routerLink="#">Link</a>
+				<a routerLink="user/:uid/website/:wid/page/:pid/widget/:wgid">Link</a>
 				
 			</li>
 			<li class="list-group-item">
-				<a routerLink="#">Button</a>
+				<a routerLink="user/:uid/website/:wid/page/:pid/widget/:wgid">Button</a>
 				
 			</li>
 			<li class="list-group-item">
-				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">Image</a>
+				<button class="btn sw-button to-a" (click)="create('Image')">Image</button>
 				
 			</li>
 			<li class="list-group-item">
-				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid">Youtube</a>
+				<button class="btn sw-button to-a" (click)="create('Youtube')">Youtube</button>
 				
 			</li>
 			<li class="list-group-item">
-				<a routerLink="#">Data Table</a>
+				<a routerLink="user/:uid/website/:wid/page/:pid/widget/:wgid">Data Table</a>
 				
 				<li class="list-group-item">
-				<a routerLink="#">Repeater</a>
+				<a routerLink="user/:uid/website/:wid/page/:pid/widget/:wgid">Repeater</a>
 				
 			</li>
 			
@@ -55,6 +55,6 @@
 
 		<nav class="navbar fixed-bottom navbar-light bg-light">
 			<div class="sw-full-width">
-  				<a class="sw-color-black float-right" routerLink="/user/:uid	"><i class="fas fa-user"></i></a>
+  				<a class="sw-color-black float-right" routerLink="/user/{{uid}}	"><i class="fas fa-user"></i></a>
   			</div>
 		</nav>

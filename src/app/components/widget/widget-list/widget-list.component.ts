@@ -14,17 +14,17 @@ export class WidgetListComponent implements OnInit {
 	uid:string;
 	wid:string;
 	pid:string;
-	widgets:Widgets[];
+	widgets:Widget [];
 
   constructor(private widgetService:WidgetService, 
     private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-  	this.activatedRoute.params.subscribe(params =>){
-  		this.uid = params ['uid'];
+  	this.activatedRoute.params.subscribe(params =>{
+  		this. uid = params ['uid'];
   		this.wid = params ['wid'];
   		this.pid = params ['pid'];
-  		this.widgets = this.widgetService.findWidgetsByPageId(this.pid);
+  		this.widgets = this.widgetService.findWidgetsByPageId(this.pid)
 
 
   	})

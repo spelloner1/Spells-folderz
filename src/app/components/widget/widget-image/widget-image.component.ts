@@ -1,9 +1,9 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import{ActivatedRoute,Router} from '@angular/router';
-import{WidgetService} from "../../../../services/widget.service.client"
-import{Widget} from "../../../../models/widget.model.client"
-import{NgForm } from "@angular/forms";
+import{WidgetService} from "../../../../services/widget.service.client";
+import{Widget} from "../../../../models/widget.model.client";
+import{NgForm } from "@angular/forms"
 
 @Component({
   selector: 'app-widget-image',
@@ -25,7 +25,7 @@ export class WidgetImageComponent implements OnInit {
   width:string;
 
   constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute
-  	ActivatedRoute, private router: Router) { }
+  	, private router: Router) { }
 
   ngOnInit() {
 
