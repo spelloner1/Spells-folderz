@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {Website} from '../models/website.model.client';
 @Injectable()
 
-export class websiteService {
+export class WebsiteService {
 
   constructor() { }
 

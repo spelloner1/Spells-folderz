@@ -1,39 +1,31 @@
 <nav class="navbar fixed-top navbar-light bg-light">
 		<a routerLink="/widget-list" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
 		<div class="sw-80-width">
-			<a class="float-left navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><strong>Widget Heading</strong></a>
+			<a class="float-left navbar-brand" routerLink="/widget-list"><strong>Widget Heading</strong></a>
 		</div>
-		<button [disabled] = "!f.invalid" type = "submit" form = "widgetForm" class="btn sw-button-to-a class="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget" class="sw-font-white"><i class="fas fa-check"></i></button> 
+		<a routerLink="/widget-list" class="sw-font-white"><i class="fas fa-check"></i></a> 
 	</nav>
-	
 	<div class="container-fluid">
-		<form id = "widgetForm (ngSubmit)="update ()" #f="ngForm">
-			
+		<form>
 			<div class="form-group">
-				<label> <b>Name</b></label>
-				<input class="form-control" type="text" name="name" ngModel= {{widget.name}} #name= "ngModel" placeholder="Enter your widget name..."> 
+				<label for="page-description" ><b>Name</b></label>
+				<input class="form-control" type="text"-name="website-name" placeholder=""> 
 			</div>
 			<div class="form-group">
-				<label><b>Text</b></label>
-				<input class="form-control" type="text"name="text" ngModel= "{{widget.text}}" required #text= "ngModel" placeholder= "Enter your widget text..."> 
+				<label for="page-description" ><b>Text</b></label>
+				<input class="form-control" type="text"-name="website-name" placeholder="U.S. Senate reaches compromise on Emergency Management Services"> 
 			</div>
-			
-			<div class = "alert alert-danger" *ngIf"text.invalid && text.touched" >Text can't be empty!</div>
-
 			<div class="form-group">
-				<label <b>Size</b></label>
-				<input class="form-control" type="number"name="size" ngModel = "{{widget.size}}" required #size = "ngModel" placeholder= "Enter your widget text..."> 
+				<label for="page-description" ><b>Size</b></label>
+				<input class="form-control" type="text"-name="website-name" placeholder=3> 
 			</div>
-
-			<div class = "alert alert-danger" *ngIf"size.invalid && size.touched" >Size can't be empty!</div>
-
 		</form>
-		<button type= "button" class= "btn btn-danger btn-block" (click) ="remove()">Delete</button>
+		<a class="btn btn-danger btn-block" routerLink="/widget-list">Delete</a>
 		
 	</div>
 	<nav class="navbar fixed-bottom navbar-light bg-light">
 		<div class="sw-full-width">
-  <a class="sw-font-white float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
+  <a class="sw-font-white float-right" routerLink="/profile"><i class="fas fa-user"></i></a>
   		</div>
 </nav>
 					

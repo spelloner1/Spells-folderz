@@ -1,39 +1,42 @@
 <nav class="navbar fixed-top navbar-light" style="background-color:#DCDCDC;">
-		<a routerLink="/widget-list" class="sw-black"><i class="fas fa-chevron-left"></i></a>
+		<a class="/widget-list" class="sw-black"><i class="fas fa-chevron-left"></i></a>
 		<div class="sw-80-width">
-			<a class="sw-font-white sw-no-underline float-left" routerLink="#"><b>Widgets</b></a>
+			<a class="sw-font-white sw-no-underline float-left" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><b>Widgets</b></a>
 		</div>
-		<a href="/widget-list" class="sw-black float-right"><i class="fas fa-check"></i></a>
+		<button [disabled] = "f. invalid" type = "submit" form ="widgetForm"  class="/widget-list" class="sw-button-to-a sw-black float-right"><i class="fas fa-check"></i></button>
 	</nav>
 	<div class="container-fluid">
-		<form>
+		<form id = "widgetForm" (ngSubmit) = "update()" #f = "ngForm" >
 			<div class="form-group">
-				<label for="name">Name</label>
-				<input type="text" name="name" class="form-control">
+				<label>Name</label>
+				<input class="form-control" type="text" name="name" ngModel = "{{widget.name}}" #name = "ngModel" placeholder="Enter your widget name...">
 			</div>
 
 			<div class="form-group">
-				<label for="text">Text</label>
-				<input type="text" name="text" class="form-control">
+				<label>Text</label>
+				<input class= "form-control" type="text" name="text" ngModel = "{{widget.text}}" #text = "ngModel" placeholder= "Enter your widget text...">
 			</div>
 
 			<div class="form-group">
-				<label for="URL">URL</label>
-				<input type="text" name="URL" class="form-control" placeholder="https://www.image.com">
+				<label>URL</label>
+				<input class="form-control" required ngModel="{{widget.url}} #url="ngModel" type="text" name="url"  placeholder="https://www.image.com">
 			</div>
+			<div class = "alert alert-danger" *ngIf"url.invalid && url.touched" >URL can't be empty!</div>
+
+
 			<div class="form-group">
-				<label for="upload">Upload</label>
-				<input class="form-control" type="file" name="upload">
+				<label>Upload</label>
+				<input class="form-control" type="file" name="widget-upload" placeholder= "100%">
 			</div>
 			<div>
 				<a class="btn btn-primary btn-block" routerLink="#"> Upload</a>
 			</div>
 			<div>
-				<a class="btn btn-danger btn-block" routerLink="/widget-list">Delete</a>
+				<button type= "delete" class="btn btn-danger btn-block" type="button" (click)="remove()" >Delete</button>
 			</div>
 		</form>
 			<footer class="navbar fixed-bottom navbar-light" style="background-color:#DCDCDC;">
 				<div class="sw-width">
-					<a routerLink="/profile" class="sw-font-white float-right"><i class="fas fa-user"></i></a>
+					<a routerLink="/user/{{uid}}"> ><i class="fas fa-user "sw-font-white float-right"></i></a>
 				</div>
 			</footer>
