@@ -4,11 +4,11 @@ import { WidgetService } from '../../../services/widget.service.client';
 import { Widget} from '../../../models/widget.model.client';
 
 @Component({
-  selector: 'app-widget-chooser',
-  templateUrl: './widget-chooser.component.html',
-  styleUrls: ['./widget-chooser.component.css']
+  selector: 'app-widget-choose',
+  templateUrl: './widget-choose.component.html',
+  styleUrls: ['./widget-choose.component.css']
 })
-export class WidgetChooserComponent implements OnInit {
+export class WidgetChooseComponent implements OnInit {
 
 	uid:string;
 	wid:string;

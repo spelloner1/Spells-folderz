@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import{NgForm} from '@angular/forms'
-import{userService} from '../../../services/user.service.client'
+import{ UserService } from '../../../services/user.service.client'
 import {User} from '../../../models/user.model.client'
 import{ Router} from '@angular/router'
 
@@ -18,28 +18,34 @@ username: string;
 password:string;
 errorFlag:boolean;
 
-  constructor(private userService: userService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
 login(){
-	
+	console.log(this.loginForm.value.username);
 	this.username=this.loginForm.value.username;
 	this.password=this.loginForm.value.password;
 
-var user:User = this.userService.findUserByCredentials(this.username,this.password);
-if(user){
-// navigate to profile
-this.errorFlag = false;
-this.router.navigate(['/user'/ + user._id ]);
+  this.userService.findUserByCredentials(this.username,this.password).subscribe(
+    (user:User) => {
+    this.errorFlag = false;
+    this.router.navigate(['user', user._id]); 
+    },
+    (error:any) => {
+      this.errorFlag = true;
 
-
-
-}else{
-
-	alert("invalid username or password");
-
+    }
+    )
 
 }
+
 }
-}
+
+
+
+
+
+
+
+

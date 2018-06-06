@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { WebsiteService } from '../../../services/website.service.client';
 import { Website } from '../../../models/website.model.client'
-import { ActivatedRout,Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { NgForm } from '@angular/forms'
 
 @Component({
@@ -40,7 +40,7 @@ export class WebsiteNewComponent implements OnInit {
 
   	};
   	this.websiteService.createWebsite(this.uid, newWebsite);
-  	this.router.navigate(['user',this.uid,'website'])
+  	this.router.navigate(['user',this.uid,'website']);
 
 
   }

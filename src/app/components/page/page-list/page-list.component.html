@@ -6,27 +6,13 @@
 		<a class="sw-color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/new"><i class="fas fa-plus"></i></a>	
 	</nav>
 	<div class="container-fluid">
-		<ul class="list-group-flush">
+		<ul class="list-group list-group-flush">
 			<li class="list-group-item" *ngFor="let page of pages">
 				<a routerLink="#">Blog Post</a>
-				<a class="float-right" routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}>{{page.name}}<i class="fas fa-cog"></i></a>
+				<a class="float-right" routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}"><i class="fas fa-cog"></i></a>
 			</li>
-			<!-- <li class="list-group-item">
-				<a routerLink="#">Blogs</a>
-				<a class="float-right" routerLink="/user/:uid/website/:wid/page/:pid"><i class="fas fa-cog"></i></a>
-				<li class="list-group-item">
-				<a routerLink="#">Home</a>
-				<a class="float-right" routerLink="/user/:uid/website/:wid/page/:pid"><i class="fas fa-cog"></i></a>
-			</li>
-			<li class="list-group-item">
-				<a routerLink="#">About</a>
-				<a class="float-right" routerLink="/user/:uid/website/:wid/page/:pid"><i class="fas fa-cog"></i></a>
-			</li>
-			<li class="list-group-item">
-				<a routerLink="#">Contact Us</a>
-				<a class="float-right " routerLink="/user/:uid/website/:wid/page/:pid"><i class="fas fa-cog"></i></a>
-			</li>
-			 -->
+			
+			
 		</ul>	
 	</div>
 

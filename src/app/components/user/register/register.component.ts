@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import{userService} from '../../../services/user.service.client'
+import{ UserService} from '../../../services/user.service.client'
 import {User} from '../../../models/user.model.client'
 import{ Router} from '@angular/router'
 
@@ -21,9 +21,12 @@ export class RegisterComponent implements OnInit {
 	usernameError:boolean;
   
 
-  constructor(private userService:User, private router:Router) { }
+  constructor(private userService:UserService, private router:Router) { }
 
   ngOnInit() {
+
+    this.passwordError = false;
+    this.usernameError = false;
   }
   register(){
   	this.username = this.registerForm.value.username;
@@ -31,21 +34,24 @@ export class RegisterComponent implements OnInit {
   	this.verifyPassword = this.registerForm.value.verifyPassword;
   
   	if(this.password !== this.verifyPassword){
-  		alert("Two passwords are not matching!")
+  		// alert("Two passwords are not matching!")
   		this.passwordError = true;
-  		this.usernameError =false;
+  		// this.usernameError =false;
 	}else{
 		
 		this.passwordError = false;
 
-		const user: User= this.userService.findUserByUsername(this.username)
-		if(user){
+		this.userService.findUserByUsername(this.username).subscribe(
+      (user:User) => {
+		// if(user){
 			this.usernameError =true;
 			
-
-		} else {
-  			this.usernameError = false;
-  			this.passwordError = false;
+    },
+    (error:any) => {
+		
+    // } else {
+  		// 	this.usernameError = false;
+  		// 	this.passwordError = false;
   			const newUser: User = {
   				_id: "",
 				username: this.username,
@@ -54,10 +60,16 @@ export class RegisterComponent implements OnInit {
 				lastName: "",
 				email: ""
   			};
-  			this.userService.createUser(newUser);
-  			var id: string = this.userService.findUserByUsername(this.username)._id
+  			this.userService.createUser(newUser).subscribe(
+          (user:User) => {
+  			var id = user._id; 
+        // string = this.userService.findUserByUsername(this.username)._id
   			this.router.navigate(['user', id]);
   		}
-  	}
+  	)
   }
+
+  )
+}
+}
 }

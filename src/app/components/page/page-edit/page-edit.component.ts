@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms'
+import { Page } from '../../../models/page.model.client'
+import { PageService } from '../../../services/page.service.client'
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'app-page-edit',
@@ -20,7 +24,7 @@ page:Page;
 
   ngOnInit() {
 
-  	this.activatedRoute.params.subscribe(params=>{
+  	this.activatedRouter.params.subscribe(params=>{
   		this.uid = params['uid'];
   		this.wid = params['wid'];
   		this.pid= params ['pid'];
@@ -40,12 +44,12 @@ this.description = this.pageForm.value.description
 		websiteId: this.wid
 	}
 	this.pageService.updatePage(this.pid,updatedPage);
-	this.router.navigate([this.router.navigate(['user,' this.uid, 'website',this.wid,'page']);
+	this.router.navigate(['user', this.uid, 'website',this.wid,'page']);
 }
 
 
 remove(){
 	this.pageService.deletePage(this.pid,);
-	this.router.navigate([this.router.navigate(['user,' this.uid, 'website',this.wid,'page']);
+	this.router.navigate(['user', this.uid, 'website',this.wid,'page']);
 }
 }

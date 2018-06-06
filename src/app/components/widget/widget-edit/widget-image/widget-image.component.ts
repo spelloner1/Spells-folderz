@@ -38,11 +38,11 @@ export class WidgetImageComponent implements OnInit {
 });
   
   }
-  remove() {}
+  remove() {
 
   this.widgetService.deleteWidget(this.wgid);
-this.router.navigate('user',this.uid,'website', this.wid, 'page', this.pid, 'widget']);
-
+this.router.navigate(['user',this.uid,'website', this.wid, 'page', this.pid, 'widget']);
+}
 
 update() {
 
@@ -62,7 +62,8 @@ const updatedWidget: Widget = {
  widgetType:this.widget.widgetType
 }
 
-this.widgetService.updatewidget(this.wgid,updatedWidget);
-this.router.navigate('user',this.uid,'website', this.wid, 'page', this.pid, 'widget']);
+this.widgetService.updateWidget(this.wgid,updatedWidget);
+this.router.navigate(['user',this.uid,'website', this.wid, 'page', this.pid, 'widget']);
 }
+
 }

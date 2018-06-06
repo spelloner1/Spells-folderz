@@ -63,7 +63,7 @@ const updatedWidget: Widget = {
  widgetType:this.widget.widgetType
 }
 
-this.widgetService.updatewidget(this.wgid,updatedWidget);
+this.widgetService.updateWidget(this.wgid,updatedWidget);
 this.router.navigate(['user',this.uid,'website', this.wid, 'page', this.pid, 'widget']);
 
   }

@@ -6,12 +6,9 @@
 				<a routerLink="/user/{{uid}}/website/new" class="sw-font-white float-right"><i class="fas fa-plus"></i></a>
 			</div>
 		</div>
-		<div class="col-sm-8">
-			<div class="container-fluid">
-				<a routerLink="#" class="sw-no-underline"><b class="sw-font-white">New Website</b></a>
-				<button class= "btn /user/{{uid}}/website	" class="sw-font-white float-right sw-button-to-a type="submit" form="websiteForm" [disabled]="f.invalid"><i class="fas fa-check"></i></button>
-
-			</div>
+		<div class="col-md-8">
+			<a class="sw-color-white" routerLink="/user/{{uid}}/website/new"><b>New Website</b></a>
+			<button class="btn sw-color-white float-right sw-button-to-a" type="submit" form="websiteForm" [disabled]="f.invalid"><i class="fas fa-check"></i></button>
 		</div>
 
 	</nav>

@@ -21,61 +21,21 @@
 				<label>URL</label>
 				<input class="form-control" required ngModel="{{widget.url}} #url="ngModel" type="text" name="url"  placeholder="https://www.image.com">
 			</div>
-			<div class = "alert alert-danger" *ngIf"url.invalid && url.touched" >URL can't be empty!</div>
+			<div class = "alert alert-danger" *ngIf = "url.invalid && url.touched" >URL can't be empty!</div>
 
 
 			<div class="form-group">
-				<label>Upload</label>
-				<input class="form-control" type="file" name="widget-upload" placeholder= "100%">
+				<label><b>Width</b></label>
+				<input class="form-control" required ngModel="{{widget.width}}" #width="ngModel"  type="text" name="width" placeholder="100%">
 			</div>
-			<div>
-				<button type= "delete" class="btn btn-danger btn-block" type="button" (click)="remove()" >Delete</button>
-			
-
-
-
-
-			<!-- 	<a class="btn btn-primary btn-block" routerLink="#"> Upload</a>
-			</div>
-			<div>
-				<button type= "delete" class="btn btn-danger btn-block" type="button" (click)="remove()" >Delete</button> -->
-			</div>
+			<div class="alert alert-danger" *ngIf="width.invalid && width.touched">Width can't be empty!</div>
+			<button type="submit" [disabled]="f.invalid" class="btn btn-primary btn-block">Submit</button>
+			<button class="btn btn-danger btn-block" type="button" (click)="remove()">Delete</button>
 		</form>
-			<footer class="navbar fixed-bottom navbar-light" style="background-color:#DCDCDC;">
-				<div class="sw-width">
-					<a routerLink="/profile" class="sw-font-white float-right"><i class="fas fa-user"></i></a>
-				</div>	
-
-
-
-
-
-
-
-			<!-- <div class="form-group">
-				<label for="page-description" ><b>Name</b></label>
-				<input class="form-control" type="text"-name="website-name" placeholder=""> 
-			</div>
-			<div class="form-group">
-				<label for="page-description" ><b>Text</b></label>
-				<input class="form-control" type="text"-name="website-name" placeholder="U.S. Senate reaches compromise on Emergency Management Services"> 
-			</div>
-			<div class="form-group">
-				<label for="page-description" ><b>URL</b></label>
-				<input class="form-control" type="text"-name="website-name" placeholder=https://youtu.be/ulwLashCXHE> 
-			</div>
-			<div class="form-group">
-				<label for="page-description" ><b>Width</b></label>
-				<input class="form-control" type="text"-name="website-name" placeholder=> 
-			</div> -->
-		</form>
-		<a class="btn btn-danger btn-block" routerLink="/../widgets/widget-list">Delete</a>
-		
 	</div>
-
 	
-	<nav class="navbar fixed-bottom navbar-light bg-light">
+	<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
 		<div class="sw-full-width">
-  			<a class="navbar-brand float-right" routerLink="/../user/profile"><i class="fas fa-user"></i></a>
-  		</div>
-	</nav>
+			<a class="navbar-brand float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
+		</div>
+	</footer>

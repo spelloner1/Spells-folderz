@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivateRoute } from '@angular/core';
-import { Page } from '../../../model/page.model.client';
+import { ActivatedRoute } from '@angular/router';
+import { Page } from '../../../models/page.model.client';
 import {PageService} from '../../../services/page.service.client'
 
 
@@ -17,10 +17,10 @@ export class PageListComponent implements OnInit {
   constructor(private pageService: PageService, private activatedRouter: ActivatedRoute) { }
 
   ngOnInit() {
-  	this.activatedRoute.params.subscribe(params=>{
+  	this.activatedRouter.params.subscribe(params=>{
   		this.uid = params['uid'];
-  		this.wid = [params['wid'];
-  		this.page = this.pageService.findPageByWebsiteId(this.wid);
+  		this.wid = params['wid'];
+  		this.pages = this.pageService.findPageByWebsiteId(this.wid);
 
   	});
   }

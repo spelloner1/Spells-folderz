@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-
 import { User } from '../models/user.model.client';
+import { map } from "rxjs/operators";
+import {Http, Response} from '@angular/http';
 // injecting service into the module
 @Injectable()
 
 export class UserService {
+  baseUrl = environments.baseUrl;
 
-  constructor() { }
+  constructor(private http:Http) { }
 
 users = [
   {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email: "alice@gmail.com"},
@@ -41,12 +43,21 @@ users = [
   }
 
   findUserByCredentials(username: string, password: string) { 
-   for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x].username === username && this.users[x].password === password) {  
-        return this.users[x]; 
-      }
+    const url =this.baseUrl + '/api/user?username'+username + '&password' + password;
+  return this.http.get(url).pipe(map(
+    (response: Response) => {
+
+     return response.json() 
     }
+  ))
+
   }
+  //  for (let x = 0; x < this.users.length; x++) {
+  //     if (this.users[x].username === username && this.users[x].password === password) {  
+  //       return this.users[x]; 
+  //     }
+  //   }
+  // }
 
   updateUser(userId: string, user: User) { 
     var oldUser = this.findUserById(userId);

@@ -16,7 +16,7 @@ export class WidgetHeadingComponent implements OnInit {
   wid:string;
   pid:string;
   wgid:string;
-  widget:string;
+  widget:Widget;
   name:string;
   text:string;
   size:number;
@@ -32,7 +32,7 @@ export class WidgetHeadingComponent implements OnInit {
       this.uid=params['pid'];
       this.uid=params['wgid'];
       this.widget = this.widgetService.findWidgetById(this.wgid);
-      )};
+      });
   }
 
   update(){

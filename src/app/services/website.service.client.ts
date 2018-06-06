@@ -19,7 +19,7 @@ export class WebsiteService {
   // new Website("789","Chess","234","Lorem")
 ];
 
- createWebsite(userId, string, website: Website){
+ createWebsite(userId: string, website: Website){
 	website._id = Math.floor(Math.random() * 10000).toString();
 	website.developerId = userId;
 	this.websites.push(website);

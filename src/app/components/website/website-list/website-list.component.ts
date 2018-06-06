@@ -14,7 +14,7 @@ export class WebsiteListComponent implements OnInit {
 	uid: string;
 	websites: Website[];
 
-  constructor(private websiteService: WebsiteService, private activatedRoute: ActivatedRoute) { 
+  constructor(private websiteService: WebsiteService, private activatedRoute: ActivatedRoute) { }
 
 
   ngOnInit() {
