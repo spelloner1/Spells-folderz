@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
       this.passwordError = true;
     }else {
       this.passwordError = false;
-     this.userService.findUserByName(this.username).subscribe(
+     this.userService.findUserByUsername(this.username).subscribe(
      (user:User)=> {
         this.usernameError = true;
       },
@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
         };
         this.userService.createUser(newUser).subscribe(
           (user:User)=>{
-            var id = user._id
+            var id = user._id;
          this.router.navigate(['user', id]);
           }
 
@@ -62,44 +62,6 @@ export class RegisterComponent implements OnInit {
       }
      ) 
     }
+    
+
   
-//   	if(this.password !== this.verifyPassword){
-//   		// alert("Two passwords are not matching!")
-//   		this.passwordError = true;
-//   		// this.usernameError =false;
-// 	}else{
-		
-// 		this.passwordError = false;
-
-// 		this.userService.findUserByUsername(this.username).subscribe(
-//       (user:User) => {
-// 		// if(user){
-// 			this.usernameError =true;
-			
-//     },
-//     (error:any) => {
-		
-//     // } else {
-//   		// 	this.usernameError = false;
-//   		// 	this.passwordError = false;
-//   			const newUser: User = {
-//   				_id: "",
-// 				username: this.username,
-// 				password: this.password,
-// 				firstName: "",
-// 				lastName: "",
-// 				email: ""
-//   			};
-//   			this.userService.createUser(newUser).subscribe(
-//           (user:User) => {
-//   			var id = user._id; 
-//         // string = this.userService.findUserByUsername(this.username)._id
-//   			this.router.navigate(['user', id]);
-//   		}
-//   	)
-//   }
-
-//   )
-// }
-// }
-// }

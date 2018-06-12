@@ -17,7 +17,12 @@ wid:string;
 pid:string;
 name:string;
 description:string;
-page:Page;
+page:Page =  {
+  _id:  "",
+  websiteId: "",
+  name:"",
+  description:""
+};
 
 
   constructor(private pageService: PageService, private activatedRouter: ActivatedRoute, private router: Router) { }
@@ -28,23 +33,34 @@ page:Page;
   		this.uid = params['uid'];
   		this.wid = params['wid'];
   		this.pid= params ['pid'];
-  		this.page = this.pageService.findPageById(this.pid);
+  		this.pageService.findPageById(this.pid).subscribe(
+        (page:Page) =>{
+          this.page = page;
   		this.name= this.page.name;
   		this.description = this.page.description;
+      // (page:Page) =>{
+
+      }
+      );
   });
 
 }
 update(){
 this.name = this.pageForm.value.name;
 this.description = this.pageForm.value.description
-	const updatedPage: Page = {
+	
+  const updatedPage: Page = {
 		_id: this.pid,
 		name: this.name,
 		description: this.description,
 		websiteId: this.wid
 	}
-	this.pageService.updatePage(this.pid,updatedPage);
-	this.router.navigate(['user', this.uid, 'website',this.wid,'page']);
+	this.pageService.updatePage(this.pid,updatedPage).subscribe(
+    (page:Page) =>{
+      this.router.navigate(['user', this.uid, 'website',this.wid,'page']);
+    }
+
+	);
 }
 
 

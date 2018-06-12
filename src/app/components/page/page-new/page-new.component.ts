@@ -40,10 +40,12 @@ export class PageNewComponent implements OnInit {
 		websiteId:this.wid,
 		description:this.description
 		}
-  		this.pageService.createPage(this.wid,newPage);
+  		this.pageService.createPage(this.wid,newPage).subscribe(
+        (page:Page) => {
   		this.router.navigate(['user', this.uid, 'website',this.wid,'page']);
-  		'user/:uid/website/:wid/page' 
+  		 
 
   	}
-
+);
+}
 }

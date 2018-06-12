@@ -29,11 +29,21 @@ export class WebsiteEditComponent implements OnInit {
   	this.activatedRoute.params.subscribe(params =>{
   		this.uid = params['uid'];
   		this.uid = params['wid'];
-  		this.websites = this.websiteService.findWebsitesByUser(this.uid);
-  		this.website = this.websiteService.findWebsiteById(this.wid);
-  		this.name = this.website.name;
-  		this.description = this.website.description;
-  		
+  		this.websiteService.findWebsitesByUser(this.uid).subscribe(
+      (websites: Website[]) => {
+       this.websites = websites;
+      }
+      );
+      
+    
+  		this.websiteService.findWebsiteById(this.wid).subscribe(
+        (website:Website) => {
+          this.website =website; 
+          this.name = this.website.name;
+          this.description = this.website.description;
+        } 
+        );
+      
   	})
   }
   update(){
@@ -45,14 +55,25 @@ export class WebsiteEditComponent implements OnInit {
   		developerId: this.uid,
   		description: this.description
   	} 
-  	this.websiteService.updateWebsite(this.wid, updatedWeb);
-
-  	this.router.navigate(['user',this.uid,'website'])
+  	this.websiteService.updateWebsite(this.wid, updatedWeb).subscribe(
+      (website:Website)=>{
+        this.router.navigate(['user',this.uid,'website']);
+      }
+     
+      );
 
   }
   delete(){
-  	this.websiteService.deleteWebsite(this.wid);
-  	this.router.navigate(['user',this.uid,'website'])
+  	this.websiteService.deleteWebsite(this.wid).subscribe(
+      (websites:Website[]) => {
+        this.router.navigate(['user',this.uid,'website'])
+
+
+      }
+      );
+        
+
+      }
   }
 
-}
+

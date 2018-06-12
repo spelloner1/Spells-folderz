@@ -17,11 +17,15 @@ export class WidgetEditComponent implements OnInit {
   wgid:string;
 
   ngOnInit() {
-  	this.activatedRoute.params.subscribe(params=> {
-  		
+  	this.activatedRoute.params.subscribe(params=> {		
   		this.wgid=params['wgid'];
+  	  this.widgetService.findWidgetById(this.wgid).subscribe(
+      (widget:Widget) => {
+        this.widget = widget;
 
-  		this.widget= this.widgetService.findWidgetById(this.wgid);
+      }
+
+      );
 
   	})
   }

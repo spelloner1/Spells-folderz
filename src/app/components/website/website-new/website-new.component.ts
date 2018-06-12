@@ -25,9 +25,15 @@ export class WebsiteNewComponent implements OnInit {
   ngOnInit() {
   	this.activatedRoute.params.subscribe(params =>{
   		this.uid = params['uid'];
-  		this.websites = this.websiteService.findWebsitesByUser(this.uid);
+  		this.websiteService.findWebsitesByUser(this.uid).subscribe(
+      (websites: Website[]) => {
+       this.websites = websites;
+      }
+      );
+      
+    });
   		
-  	})	
+  		
   }
   create(){
   	this.name = this.websiteForm.value.name;
@@ -40,8 +46,14 @@ export class WebsiteNewComponent implements OnInit {
   		description:this.description
 
   	};
-  	this.websiteService.createWebsite(this.uid, newWebsite).subscribe
-  	this.router.navigate(['user',this.uid,'website']);
+  	this.websiteService.createWebsite(this.uid, newWebsite).subscribe(
+     (wesite:Website) => {
+       this.router.navigate(['user',this.uid,'website']);
+    }
+   
+      );
+
+  	// this.router.navigate(['user',this.uid,'website']);
 
 
   }
