@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import{Page} from '../models/page.model.client';
+import { map } from "rxjs/operators";
+import {Http, Response} from '@angular/http';
+import {environment} from '../../environments/environment'
 
 @Injectable()
 
 export class PageService {
+	baseUrl = environment.baseUrl;
 
-  constructor() { }
+  constructor(private http:Http) { }
 
  pages= [
 
@@ -15,51 +19,65 @@ export class PageService {
 ]
 // adds the page parameter instance to the local pages array. The new page's website is set to
 createPage(websiteId: string,page :Page){
-	page._id = Math.floor(Math.random() * 10000).toString();
-	page.websiteId = websiteId;
-	this.pages.push(page);
-	return page;
+	const url = this.baseUrl + '/api/website/'+  websiteId +'/page';
+	return this.http.post(url,page).pipe(map(
+		(response:Response) => {
+			return response.json();
+		}
+		))
 }
 // retrieves the pages in local pages array whose website matches the parameter websiteId
 
 findPageByWebsiteId(websiteId: string){
-let result= [];
-for(let i=0;i< this.pages.length;i++){
-if(this.pages[i].websiteId === websiteId){
-	result.push(this.pages[i]);
-}	
+const url = this.baseUrl + '/api/website/'+ websiteId +websiteId +'/page';
+return this.http.get(url).pipe(map(
+		(response:Response) => {
+			return response.json();
+		}
+		))
 
 }
 
-return result;
 
-}
 // retrieves the page in local pages array whose _id matches the pageId parameter
 findPageById(pageId : string){
-	for(let i=0;i<this.pages.length;i++){
-	if(this.pages[i]._id === pageId){
-		return this.pages[i];
-	}	
-	}
+	const url = this.baseUrl + '/api/page/'+ pageId;
+return this.http.get(url).pipe(map(
+		(response:Response) => {
+			return response.json();
+		}
+		))
+
 }
 
 
 // updates the page in local pages array whose _id matches the pageId parameter
-updatePage(pageId: string, page:Page){
+updatePage(pageId: string, page:Page) {
 
-let oldPage = this.findPageById(pageId);
-const index = this.pages.indexOf(oldPage);
-this.pages[index].name = page.name;
-this.pages[index].description = page.description; 	
+const url = this.baseUrl + '/api/page/'+ pageId;
+return this.http.put(url,page).pipe(map(
+(response:Response) => {
+	return response.json();
+
+	}	
+
+	))
+
 }
 // removes the page from local pages array whose _id matches the pageId parameter
 deletePage(pageId:string){
-	let oldPage = this.findPageById(pageId);
-	const index = this.pages.indexOf(oldPage);
-	this.pages.splice(index, 1);
-}
+	const url = this.baseUrl + '/api/page/'+ pageId;
+return this.http.delete(url).pipe(map(
+(response:Response) => {
+	return response.json();
+
+	}	
+
+	))
 
 
 }
+}
+
 
 
