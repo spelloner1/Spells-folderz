@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms'
 import{ UserService} from '../../../services/user.service.client'
 import {User} from '../../../models/user.model.client'
 import{ Router} from '@angular/router'
@@ -52,16 +52,19 @@ export class RegisterComponent implements OnInit {
         email: ""
         };
         this.userService.createUser(newUser).subscribe(
-          (user:User)=>{
+          (user:User)=> {
             var id = user._id;
          this.router.navigate(['user', id]);
           }
+          
 
           )
 
       }
-     ) 
+      )
     }
-    
+}
+}
+
 
   
