@@ -24,13 +24,29 @@
 			<div class = "alert alert-danger" *ngIf = "url.invalid && url.touched" >URL can't be empty!</div>
 
 
-			<div class="form-group">
-				<label>Upload</label>
-				<input class="form-control" type="file" name="widget-upload" placeholder= "100%">
-			</div>
-			<div>
+			<form ngNoForm action="{{baseUrl}}/api/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{wgid}}/upload" method="post" enctype="multipart/form-data">
+
+               <div>
+
+                 <label class='form-group'>Upload</label>
+
+                   <input  name="myFile"   type="file" class="form-control"/>
+
+                                         <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
+
+                                 </div>
+
+                        </form>
+
+
+
+			
 				<a class="btn btn-primary btn-block" routerLink="#"> Upload</a>
 			</div>
+			
+			<button class="btn btn-primary btn-block" routerLink="{ path	: 'user/{{uid}}}/website/{{wid}}}/page/{{pid}}}/widget/{{wgid}}}/flickr', component:FlickrImageSearchComponent}">Choose from Flickr</button>
+
+
 			<div>
 				<button type= "delete" class="btn btn-danger btn-block" type="button" (click)="remove()" >Delete</button>
 			</div>

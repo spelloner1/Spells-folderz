@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit {
   		this.uid = params ['uid'];
   		this.userService.findUserById(this.uid).subscribe(
         (user:User) => {
-      this.user = user;
+      this.aUser = user;
   		this.username = user.username;
   		this.email = user.email;
   		this.firstName = user.firstName;
@@ -72,15 +72,15 @@ export class ProfileComponent implements OnInit {
   		this.submitSuccess = false;
   		}else{
   			const updatedUser: User = {
-  				_id: this.user._id,
+  				_id: this.aUser._id,
   				username : this.username,
-  				password: this.user.password,
+  				password: this.aUser.password,
   				firstName:this.firstName,
   				lastName: this.lastName,
   				email: this.email
   			};
   			this.userService.updateUser(this.uid, updatedUser).subscribe(
-        (user3:User)=>{
+        (user2:User)=>{
           this.usernameTaken = false;
       this.submitSuccess = true;
       

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import{FormsModule} from '@angular/forms'
 
 import { HttpModule } from '@angular/http';
-import { Routing } from './app.routing'
+
 
 
 import { AppComponent } from './app.component';
@@ -23,10 +23,24 @@ import { PageListComponent } from './components/page/page-list/page-list.compone
 import { WidgetHeadingComponent } from './components/widget/widget-edit/widget-heading/widget-heading.component';
 import { WidgetImageComponent } from './components/widget/widget-edit/widget-image/widget-image.component';
 import { WidgetYoutubeComponent } from './components/widget/widget-edit/widget-youtube/widget-youtube.component';
+import { FlickrImageSearchComponent } from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
 
 
 import { Routing } from './app.routing';
 
+import{UserService} from './services/user.service.client';
+import{WebsiteService} from './services/website.service.client';
+import{PageService} from './services/page.service.client';
+import{WidgetService} from './services/widget.service.client';
+import{FlickrService} from './services/flicker.service.client';
+import{OmdbService} from './services/omdb.service.client';
+
+
+
+
+
+
+import { OmdbtestComponent } from './components/omdbtest/omdbtest.component';
 
 
 
@@ -50,17 +64,20 @@ import { Routing } from './app.routing';
     WidgetHeadingComponent,
     WidgetImageComponent,
     WidgetYoutubeComponent,
+    OmdbtestComponent,
+    FlickrImageSearchComponent
+    
+   
     
     
-    WidgetChooseComponent,
-    WidgetHeadingComponent
   ],
   imports: [
     BrowserModule,
-    Routing
+    Routing,
+    FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [OmdbService,UserService,WebsiteService,PageService,WidgetService,FlickrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

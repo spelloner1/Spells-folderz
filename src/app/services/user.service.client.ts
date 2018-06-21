@@ -7,7 +7,7 @@ import {environment} from '../../environments/environment'
 @Injectable()
 
 export class UserService {
-  baseUrl = environments.baseUrl;
+  baseUrl = environment.baseUrl;
 
   constructor(private http:Http) { }
 
@@ -55,7 +55,7 @@ users = [
 
     const url = this.baseUrl + '/api/user?username=' + username;
     return this.http.get(url).pipe(map(
-      (reponse: Response) => {
+      (response: Response) => {
         return response.json();
 
          }

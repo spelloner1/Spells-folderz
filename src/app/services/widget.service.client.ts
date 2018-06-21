@@ -88,7 +88,7 @@ findWidgetById(widgetId: string) {
  updateWidget(widgetId: string, widget: Widget){
    const url = this.baseUrl + '/api/widget/' + widgetId;
    return this.http.put(url,widget).pipe(map(
-     (reponse: Response) => {
+     (response: Response) => {
      return response.json();
    }
      ));
@@ -97,7 +97,7 @@ findWidgetById(widgetId: string) {
 deleteWidget(widgetId:string){
   const url = this.baseUrl +  '/api/widget/' + widgetId;
   return this.http.delete(url).pipe(map(
-     (reponse:Response) => {
+     (response:Response) => {
      return response.json();
    }
      

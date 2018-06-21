@@ -1,0 +1,17 @@
+<div class="container-fluid">
+	<form (ng submit)="search()" #f="ngForm">
+		<div class="form-group">
+			<input class = "form-control" type="text" name="title" placeholder="Movie Title" required ngModel #title="ngModel">
+  
+</div>
+
+<button class= "btn btn-primary btn-block" [disabled] ="f.invalid" type="submit">Search</button>
+</form>
+<ul class="list-group">
+	<li class="list-group-item" *ngFor= "let movie of movies">
+		<h5>{{movie.Title}}</h5>
+		<img[src] ="movie.Poster">
+	</li>
+</ul>
+</div>
+
