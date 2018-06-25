@@ -68,8 +68,8 @@ selectPhoto(photo) {
  
  this.widgetService.updateWidget(this.wgid, this.widget).subscribe(
  	(widget:Widget)=>{
- 		this.router.navigate(['user',this.uid,'website',this.wid 'page',this.pid]);
- 		user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{wgid}}
+ 		this.router.navigate(['user',this.uid,'website',this.wid, 'page',this.pid,'widget',this.wgid]);
+ 		// user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{wgid}}
  	}
  	)
 

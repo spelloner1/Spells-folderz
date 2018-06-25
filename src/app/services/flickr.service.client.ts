@@ -18,11 +18,11 @@ searchPhotos(searchTerm: any) {
 
 }
 
-selectPhoto(pic){
-	console.log
+// selectPhoto(pic){
+// 	console.log
 
  }
-}
+
 
 // b77316078e00978c83e7f29fda3fc344
 
