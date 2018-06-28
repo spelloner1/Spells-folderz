@@ -37,34 +37,62 @@ export class RegisterComponent implements OnInit {
       this.passwordError = true;
     }else {
       this.passwordError = false;
-     this.userService.findUserByUsername(this.username).subscribe(
-     (user:User)=> {
-        this.usernameError = true;
-      },
-      (error:any) => {
 
-        const newUser:User={
-          _id: "",
+      this.userService.findUserByUsername(this.username).subscribe(
+         (data:any) => {
+           if(!data){
+
+
+        //    if(!data){
+            const newUser:User={
+          // _id: "",
         username: this.username,
         password: this.password,
         firstName: "",
         lastName: "",
         email: ""
         };
+         
+        //    }
+        //  } 
+
+        // )
+
+
+     // this.userService.findUserByUsername(this.username).subscribe(
+     // (user:User)=> {
+     //    this.usernameError = true;
+     //  },
+     //  (error:any) => {
+
+     //    const newUser:User={
+     //      _id: "",
+     //    username: this.username,
+     //    password: this.password,
+     //    firstName: "",
+     //    lastName: "",
+     //    email: ""
+     //    };
         this.userService.createUser(newUser).subscribe(
           (user:User)=> {
             var id = user._id;
          this.router.navigate(['user', id]);
+          },
+          (error:any)=>{
+            this.usernameError = true;
           }
           
 
-          )
+          );
 
+      }else{
+        this.usernameError=true;
       }
-      )
+      
     }
+)
 }
 }
-
+}
 
   

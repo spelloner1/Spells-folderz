@@ -52,7 +52,7 @@ searchPhotos(){
        val = val.substring(0, val.length - 1);
        val = JSON.parse(val);
        this.photos = val.photos.photo;
-       console.log(this.photos);
+       // console.log(this.photos);
 
      }
 
