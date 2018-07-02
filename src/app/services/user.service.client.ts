@@ -67,7 +67,7 @@ users = [
   return this.http.get(url).pipe(map(
     (response: Response) => {
 
-     return response.json() 
+     return response.json(); 
     }
   ))
 

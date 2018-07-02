@@ -30,12 +30,12 @@ export class WidgetChooseComponent implements OnInit {
 	create(type){
 	const newWidget: Widget = {
 
-  		_id:'',
-  		widgetType:"type",
+  		// _id:'',
+  		widgetType:type,
   		pageId: this.pid
   	}
   	this.widgetService.createWidget(this.pid, newWidget).subscribe(
-      (widget:Widget) =>{
+      (widget:Widget) => {
         
         this.router.navigate(['user',this.uid,'website',this.wid, 'page', this.pid, 'widget',widget._id]);
 

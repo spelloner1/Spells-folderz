@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { WebsiteService } from '../../../services/website.service.client';
+import { WebsiteService } from '../../../services/website.service.client'
 import { Website } from '../../../models/website.model.client'
 import { ActivatedRoute,Router } from '@angular/router';
 import { NgForm } from '@angular/forms'
@@ -19,7 +19,11 @@ export class WebsiteEditComponent implements OnInit {
 	websites:Website[];
 	name:string;
 	description:string;
-	website:Website;
+	website:Website={
+    name:'',
+    description:'',
+    developerId:''
+  };
 	wid:string;
 
   constructor(private websiteService: WebsiteService, private activatedRoute: ActivatedRoute, private router:Router) { }
@@ -49,7 +53,8 @@ export class WebsiteEditComponent implements OnInit {
   update(){
   	this.name = this.websiteForm.value.name;
   	this.description = this.websiteForm.value.description;
-  	const updatedWeb: Website = {
+  	
+    const updatedWeb: Website = {
   		_id: this.wid,
   		name:this.name,
   		developerId: this.uid,

@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router'
   styleUrls: ['./page-edit.component.css']
 })
 export class PageEditComponent implements OnInit {
-	@ViewChild('f') pageForm: NgForm
+	@ViewChild('f') pageForm: NgForm;
 
 uid:string;
 wid:string;
@@ -18,7 +18,7 @@ pid:string;
 name:string;
 description:string;
 page:Page =  {
-  _id:  "",
+  // _id:  "",
   websiteId: "",
   name:"",
   description:""
@@ -47,7 +47,7 @@ page:Page =  {
 }
 update(){
 this.name = this.pageForm.value.name;
-this.description = this.pageForm.value.description
+this.description = this.pageForm.value.description;
 	
   const updatedPage: Page = {
 		_id: this.pid,
@@ -65,7 +65,10 @@ this.description = this.pageForm.value.description
 
 
 remove(){
-	this.pageService.deletePage(this.pid,);
+	this.pageService.deletePage(this.pid,).subscribe(
+    (pages:Page[]) =>{
 	this.router.navigate(['user', this.uid, 'website',this.wid,'page']);
+}
+);
 }
 }

@@ -8,9 +8,10 @@ import {environment} from '../../environments/environment'
 
 export class WebsiteService {
 
+	baseUrl = environment.baseUrl;
+  
   constructor(private http:Http) { }
 
-baseUrl = environment.baseUrl
 
 
 //  websites: Website[] =[

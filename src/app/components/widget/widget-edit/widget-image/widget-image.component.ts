@@ -18,11 +18,16 @@ export class WidgetImageComponent implements OnInit {
 	wid:string;
 	pid:string;
 	wgid:string;
-	widget:Widget;
+	widget:Widget= {
+  // _id:'',
+  widgetType:'',
+  pageId:''
+  };
   name:string;
   text:string;
   url:string;
   width:string;
+  baseUrl:string;
 
   constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute
   	, private router: Router) { }
@@ -34,6 +39,8 @@ export class WidgetImageComponent implements OnInit {
   		this.wid = params ['wid'];
   		this.pid = params['pid'];
   		this.wgid = params['wgid'];
+      this.baseUrl = environment.baseUrl;
+
   		this.widgetService.findWidgetById(this.wgid).subscribe(
         (widget:Widget) =>{
           this.widget = widget;
@@ -71,7 +78,7 @@ const updatedWidget: Widget = {
  widgetType:this.widget.widgetType
 }
 this.widgetService.updateWidget(this.wgid, updatedWidget).subscribe(
-    (widget:Widget[]) => {
+    (widget:Widget) => {
       this.router.navigate(['user', this.uid, 'website', this.wid, 'page', this.pid, 'widget']);
     }
     );

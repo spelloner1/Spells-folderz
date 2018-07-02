@@ -16,7 +16,11 @@ export class WidgetHeadingComponent implements OnInit {
   wid:string;
   pid:string;
   wgid:string;
-  widget:Widget;
+  widget:Widget={
+    // _id:'',
+    widgetType:'',
+    pageId:''
+  };
   name:string;
   text:string;
   size:number;
