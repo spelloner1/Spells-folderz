@@ -4,6 +4,7 @@ import{ActivatedRoute,Router} from '@angular/router';
 import{WidgetService} from "../../../../services/widget.service.client"
 import{Widget} from "../../../../models/widget.model.client"
 import{NgForm } from "@angular/forms";
+import{environment} from '../../../../../environments/environment'
 
 @Component({
   selector: 'app-widget-image',
