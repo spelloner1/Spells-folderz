@@ -1,5 +1,5 @@
 export class Page{
-	_id:string;
+	_id?:string;
 	name:string;
 	websiteId:string;
 	description:string;

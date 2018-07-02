@@ -32,7 +32,7 @@ import{UserService} from './services/user.service.client';
 import{WebsiteService} from './services/website.service.client';
 import{PageService} from './services/page.service.client';
 import{WidgetService} from './services/widget.service.client';
-import{FlickrService} from './services/flicker.service.client';
+import{FlickrService} from './services/flickr.service.client';
 import{OmdbService} from './services/omdb.service.client';
 
 

@@ -35,7 +35,7 @@
 			</div>
 			<div class="col-sm-8">
 				<div class="container">
-					<form id="websiteForm" (ngSubmit)="create()" #f="websiteForm">
+					<form id="websiteForm" (ngSubmit)="create()" #f="ngForm">
 						<div class="form-group">
 							<label for="website-name"><b>Name</b>
 							</label> <input class="form-control" type="text" name="name" placeholder="Input your website name" required ngModel #name="ngModel">

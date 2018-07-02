@@ -35,7 +35,7 @@ export class PageNewComponent implements OnInit {
   		
 
   		const newPage: Page = {
-  			_id:" ",
+  			// _id:" ",
 		name:this.name,
 		websiteId:this.wid,
 		description:this.description

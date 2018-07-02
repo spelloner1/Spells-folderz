@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FlickrService } from '../../../../../services/flickr.service.client';
-import { WidgetService } from '../../../../../../../server/services/widget.service.server'
-import { Widget } from '../../../../../models/widget.model.client'
-import { ActivatedRoute, Router } from '@angular/router'
+import { WidgetService } from '../../../../../services/widget.service.client';
+import { Widget } from '../../../../../models/widget.model.client';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class FlickrImageSearchComponent implements OnInit {
 
   ngOnInit() {
   	this.activatedRoute.params.subscribe(
-  		(params) =>{
+  		(params) => {
   			this.uid = params['uid'];
   			this.wid = params['wid'],
   			this.pid = params['pid'];
