@@ -12,7 +12,7 @@
 				<input class="form-control" type="text" name="username" required ngModel #username ="ngModel"
 				placeholder="Username">
 			</div>
-			<span class="alert" *ngIf="username.invalid && username.touched">Please enter username
+			<span class="alert" *ngIf="username.invalid && username.touched">Please enter username!
 			</span>
 
 			<div class="form-group">
@@ -23,6 +23,12 @@
 			</span>
 			<div class="form-group">
 				<input class="form-control" type="password" name="verify-password" required ngModel #verifyPassword= "ngModel" placeholder="Verify Password" >
+			</div>
+
+			<span class="alert" *ngIf="password.invalid && password.touched">Please enter password!</span>
+
+			<div class="form-group">
+				<input class="form-control" type="password" name="verifyPassword" required ngModel #verifyPassword="ngModel" placeholder="Verify Password">
 			</div>
 
 			<span class="alert" *ngIf="verifyPassword.invalid && verifyPassword.touched">Please verify password!</span>
