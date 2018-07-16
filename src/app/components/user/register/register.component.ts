@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms'
 import{ UserService} from '../../../services/user.service.client'
 import {User} from '../../../models/user.model.client'
 import{ Router} from '@angular/router'
+import{ SharedService} from '../../../services/shared.service.client'
 
 
 @Component({
@@ -21,7 +22,7 @@ export class RegisterComponent implements OnInit {
 	usernameError:boolean;
   
 
-  constructor(private userService:UserService, private router:Router) { }
+  constructor(private sharedService:SharedService, private router:Router) { }
 
   ngOnInit() {
 
@@ -44,14 +45,14 @@ export class RegisterComponent implements OnInit {
 
 
         //    if(!data){
-            const newUser:User={
-          // _id: "",
-        username: this.username,
-        password: this.password,
-        firstName: "",
-        lastName: "",
-        email: ""
-        };
+        //     const newUser:User={
+        //   // _id: "",
+        // username: this.username,
+        // password: this.password,
+        // firstName: "",
+        // lastName: "",
+        // email: ""
+        // };
          
         //    }
         //  } 
@@ -73,19 +74,24 @@ export class RegisterComponent implements OnInit {
      //    lastName: "",
      //    email: ""
      //    };
-        this.userService.createUser(newUser).subscribe(
-          (user:User)=> {
-            var id = user._id;
-         this.router.navigate(['user', id]);
-          },
-          (error:any)=>{
-            this.usernameError = true;
-          }
-          
+  this.userService.register(this.username, this.password).subscribe(
 
-          );
+   (data: User) => {
 
-      }else{
+     this.sharedService.user = data;
+
+     this.router.navigate(['/user']);
+
+   },
+
+   (error: any) => {
+
+     this.usernameError = true;
+
+   }
+
+);
+}else{
         this.usernameError=true;
       }
       

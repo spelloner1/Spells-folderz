@@ -1,22 +1,52 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model.client';
 import { map } from "rxjs/operators";
-import {Http, Response} from '@angular/http';
+import {Http, Response,RequestOptions} from '@angular/http';
 import {environment} from '../../environments/environment'
+import {SharedService} from './shared.service.client';
 // injecting service into the module
 @Injectable()
 
 export class UserService {
   baseUrl = environment.baseUrl;
+  options: RequestOptions = new RequestOptions();
 
-  constructor(private http:Http) { }
+  constructor(private http:Http,private sharedService: SharedService) { }
 
-users = [
-  {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email: "alice@gmail.com"},
-  {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley", email: "bob@whatever.com"},
-  {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia", email: "charly@hotmail.com"},
-  {_id: "456", username: "shiyu", password: "shiyu", firstName: "Shiyu", lastName: "Wang", email: "swang@ulem.org"}
-  ];
+  register(username: String, password: String) {
+
+ // this communication will be secured
+
+ this.options.withCredentials = true;
+
+ const user = {
+
+   username : username,
+
+   password : password
+
+ };
+
+
+ return this.http.post(this.baseUrl + '/api/register', user, this.options).pipe(map(
+
+     (res: Response) => {
+     const data = res.json();
+     return data;
+     }
+   ));
+}
+login(){}
+
+
+// }
+
+// users = [
+//   {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email: "alice@gmail.com"},
+//   {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley", email: "bob@whatever.com"},
+//   {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia", email: "charly@hotmail.com"},
+//   {_id: "456", username: "shiyu", password: "shiyu", firstName: "Shiyu", lastName: "Wang", email: "swang@ulem.org"}
+//   ];
 
   createUser(user: User) {
     // user._id = Math.floor(Math.random() * Math.floor(10000)).toString();
