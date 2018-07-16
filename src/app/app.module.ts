@@ -35,6 +35,7 @@ import{WidgetService} from './services/widget.service.client';
 import{FlickrService} from './services/flickr.service.client';
 import{OmdbService} from './services/omdb.service.client';
 import{SharedService} from './services/shared.service.client';
+import {AuthGuard} from './services/auth-guard.service';
 
 
 
@@ -78,7 +79,7 @@ import { OmdbtestComponent } from './components/omdbtest/omdbtest.component';
     FormsModule,
     HttpModule
   ],
-  providers: [OmdbService,UserService,WebsiteService,PageService,WidgetService,FlickrService,SharedService],
+  providers: [OmdbService,UserService,WebsiteService,PageService,WidgetService,FlickrService,SharedService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,7 @@ import { map } from "rxjs/operators";
 import {Http, Response,RequestOptions} from '@angular/http';
 import {environment} from '../../environments/environment'
 import {SharedService} from './shared.service.client';
+import{Router} from '@angular/router';
 // injecting service into the module
 @Injectable()
 
@@ -11,7 +12,60 @@ export class UserService {
   baseUrl = environment.baseUrl;
   options: RequestOptions = new RequestOptions();
 
-  constructor(private http:Http,private sharedService: SharedService) { }
+  constructor(private router:Router,private http:Http,private sharedService: SharedService) { }
+
+  loggedIn() {
+
+ this.options.withCredentials = true;
+
+ return this.http.post(this.baseUrl + '/api/loggedIn', '', this.options).pipe(
+
+   map(
+
+     (res: Response) => {
+
+       const user = res.json();
+
+       if (user !== 0) {
+
+         this.sharedService.user = user; // setting user so as to share with all components
+
+         return true;
+
+       } else {
+
+         this.router.navigate(['/login']);
+
+         return false;
+
+       }
+
+     }
+
+   );
+
+}
+
+  
+  logout() {
+
+ this.options.withCredentials = true;
+
+ return this.http.post(this.baseUrl + '/api/logout', '', this.options).pipe(map(
+ 
+
+     (res: Response) => {
+       this.sharedService.user = null;
+
+       return res;
+
+     }
+
+   ));
+
+}
+
+
 
   register(username: String, password: String) {
 
@@ -36,7 +90,35 @@ export class UserService {
      }
    ));
 }
-login(){}
+login(username: String, password: String) {
+
+
+ this.options.withCredentials = true; 
+
+
+ const user = {
+
+   username : username,
+
+   password : password
+
+ };
+
+ return this.http.post(this.baseUrl + '/api/login', body, this.options).pipe
+
+   (map(
+
+     (res: Response) => {
+
+       return res.json();
+
+     }
+
+   ));
+
+}
+
+
 
 
 // }

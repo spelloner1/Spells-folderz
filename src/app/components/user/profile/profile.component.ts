@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import{UserService} from '../../../services/user.service.client'
 import {User} from '../../../models/user.model.client'
 import{NgForm} from '@angular/forms'
+import{SharedService} from '../../../services/shared.service.client'
 
 @Component({
   selector: 'app-profile',
@@ -22,7 +23,7 @@ export class ProfileComponent implements OnInit {
 	submitSuccess:boolean;
   aUser:User;
 
-  constructor(private activatedRoute: ActivatedRoute,private userService:UserService) { }
+  constructor(private router:Router, private sharedService:SharedService,private activatedRoute: ActivatedRoute,private userService:UserService) { }
 
   ngOnInit() {
   	
@@ -38,21 +39,24 @@ export class ProfileComponent implements OnInit {
   // }
   this.usernameTaken= false;
   this.submitSuccess=false;
-  this.activatedRoute.params.subscribe(
-  	 (params) => {
-  		this.uid = params ['uid'];
-  		this.userService.findUserById(this.uid).subscribe(
-        (user:User) => {
-      this.aUser = user;
-  		this.username = user.username;
-  		this.email = user.email;
-  		this.firstName = user.firstName;
-  		this.lastName = user.lastName;
-  		this.oldUsername = user.username;
-  	}
-);
+  this.user = this.sharedService.user;
+  this.uid = this.user._id;
+  this.username = this.user.username;
+//   this.activatedRoute.params.subscribe(
+//   	 (params) => {
+//   		this.uid = params ['uid'];
+//   		this.userService.findUserById(this.uid).subscribe(
+//         (user:User) => {
+//       this.aUser = user;
+//   		this.username = user.username;
+  		this.email = this.user.email;
+  		this.firstName = this.user.firstName;
+  		this.lastName = this.user.lastName;
+  		this.oldUsername = this.user.username;
+//   	}
+// );
 
-    })
+    // })
 }
   update(){
   	this.username = this.profileForm.value.username;
@@ -90,5 +94,16 @@ export class ProfileComponent implements OnInit {
   	}
 
   }
+  logout(){
+    this.userService.logout().subscribe(
+
+     (data: any) => {
+       this.router.navigate(['/login'])
 }
+   
+   );
+
+}
+  }
+
 
