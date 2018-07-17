@@ -51,8 +51,8 @@
 </div>
 <footer class="navbar fixed-bottom navbar-light sw-bg-grey">
 	<div class="sw-full-width">
-		<a routerLink="#" class="btn btn-primary">Publish</a>
-		<a routerLink="#" class="btn btn-warning">Preview</a>
+		<a *ngIf="user.role =='admin'" href="#" class="btn btn-primary">Publish</a>
+		<a href="#" class="btn btn-warning">Preview</a>
 		<a class="navbar-brand float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a> 
 	</div>
 </footer>

@@ -41,7 +41,7 @@ login(){
      }
    
     },
-    (error:any) =>{
+    (error:any) => {
       this.errorFlag = true;
     }
     );

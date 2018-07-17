@@ -42,11 +42,26 @@ export class UserService {
 
      }
 
-   );
+   ));
 
 }
+adminLoggedIn() {
+  this.options.withCredentials = true;
+  return this.http.post(this.baseUrl + '/api/loggedIn', '', this.options).pipe(map(
+  (res: Response) => {
+    const user = res.json();
+    if (user !==0 && user.role == "admin") {
+      this.sharedService.user = user;
+      return true;
+    }else{
+      this.router.navigate(['/login']);
+      return false;
+    }
+  }
+  ));
+}
 
-  
+
   logout() {
 
  this.options.withCredentials = true;

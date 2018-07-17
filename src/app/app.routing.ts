@@ -19,7 +19,7 @@ import { PageEditComponent } from './components/page/page-edit/page-edit.compone
 import { PageListComponent } from './components/page/page-list/page-list.component';
 import { OmdbtestComponent } from './components/omdbtest/omdbtest.component';
 import { FlickrImageSearchComponent } from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
-
+import {adminGuard} from  './services/adminGuard.service';
 
 // Import all other components here 
 
@@ -32,7 +32,7 @@ const APP_ROUTES : Routes = [
   { path : 'user/:uid/website/new' , component: WebsiteNewComponent,canActivate: [AuthGuard]},
  { path : 'user/:uid/website/:wid' , component: WebsiteEditComponent,canActivate: [AuthGuard]},
  { path : 'user/:uid/website/:wid/page	' , component: PageListComponent,canActivate: [AuthGuard]},
- { path : 'user/:uid/website/:wid/page/new	' , component: PageNewComponent,canActivate: [AuthGuard]},
+ { path : 'user/:uid/website/:wid/page/new	' , component: PageNewComponent,canActivate: [AuthGuard,adminGuard]},
  { path : 'user/:uid/website/:wid/page/:pid	' , component: PageEditComponent,canActivate: [AuthGuard]},
  { path : 'user/:uid/website/:wid/page/:pid/widget	' , component: WidgetListComponent,canActivate: [AuthGuard]},
  { path : 'user/:uid/website/:wid/page/:pid/widget/new		' , component: WidgetChooseComponent,canActivate: [AuthGuard]},
